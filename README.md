@@ -1,6 +1,6 @@
 # Mobile Challenge
 
-Seja bem-vindo ao repositório do projeto DrCashClinic, um caso de uso que deve ser implementado como um aplicativo mobile.
+Seja bem-vindo ao repositório do projeto DrCashClinic, um caso de uso que deve ser implementado como um aplicativo.
 Obrigado por participar do desafio da Dr.Cash! Estamos muito contentes pelo seu primeiro passo para fazer parte de um time excepcional.
 
 ## Afinal, o que é esse desafio?
@@ -26,7 +26,7 @@ O seu prazo será de 1 semana para a entrega, que deve ser realizada por etapas,
 
 Lucas é um típico usuário de aplicativos que está em busca de uma boa clínica estética para sua esposa realizar alguns procedimentos.
 
-Através desta procura Lucas encontrou o aplicativo DrCashClinics, que exibe todas as clínicas da sua região ordenadas por proximidade e seus deatlhes de contato.
+Através desta procura Lucas encontrou o aplicativo DrCashClinics, que exibe todas as clínicas da sua região ordenadas por proximidade e seus detalhes de contato.
 
 ---
 
@@ -34,9 +34,31 @@ Através desta procura Lucas encontrou o aplicativo DrCashClinics, que exibe tod
 
 Supreenda-nos com a criação de uma Tela de Login para o app de Clínicas que Lucas encontrou.
 
+Para logar é preciso informar o e-mail e senha, que neste caso são:
+
 ```
 {
-  API DE LOGIN
+  "email": "lucas@gmail.com",
+  "password": "drcashclinics123!#"
+}
+```
+
+Rota de Autenticação: https://apihml.drcash.com.br/api/v1/identity/token
+
+
+```
+Retorno de Autenticação
+
+{
+  "userId": "string",
+  "token": "string",
+  "refreshToken": "string",
+  "expiresIn": 0,
+  "success": true,
+  "errors": [
+    "string"
+  ],
+  "errorStatus": 0
 }
 ```
 
@@ -45,10 +67,37 @@ Supreenda-nos com a criação de uma Tela de Login para o app de Clínicas que L
 - 1. Após a realização do Login, o usuário deve ser redirecionado para a tela de Home, onde será possível navegar em listagem de clínicas, no qual o usuário poderá clicar em um dos cards das clínicas e visualizar seus detalhes.
 - 2. O componente que exibirá os detalhes da clínica será um modal.
 
+Rota da Listagem de Clínicas: https://apihml.drcash.com.br/api/v1/clinics/public
+
+
 ```
+Parâmetros para Requisição
+
 {
-  API DE LISTA DE CLÍNICAS
+  "pageNumber":
+  "pageSize":
+  "orderBy":
+  "city":
+  "state":
 }
+```
+
+
+```
+Retorno da Lista de Clínicas
+
+[
+  {
+    "id": 0,
+    "tradingName": "string",
+    "city": "string",
+    "state": "string",
+    "clinicTypeId": 0,
+    "clinicType": "string",
+    "phoneNumber": "string",
+    "isActive": true
+  }
+]
 ```
 
 ---
@@ -77,7 +126,7 @@ Supreenda-nos com a criação de uma Tela de Login para o app de Clínicas que L
 > Principal
 - Atenção com UI/UX (Isso é muuuito importante pra gente! Nossos apps são recomendados como inspiração);
 - Colaboração através do GitHub. Abrindo Pull Requests para features isoladas no aplicativo, respondendo e resolvendo comentários e sugestões.
-- Seguir guidelines e padrões do sistema iOS/Android/Web;
+- Seguir guidelines e padrões do sistema iOS/Android;
 - Estrutura e solução dos problemas;
 - Lógica, modularização, organização, clareza de código, escalabilidade e documentação;
 - Testes unitários de parte do projeto.
@@ -95,6 +144,8 @@ Supreenda-nos com a criação de uma Tela de Login para o app de Clínicas que L
 Depois de implementar a solução, envie um **pull request** para este repositório pela interface do Github.
 
 O nome da branch deve seguir o seguinte padrão: **nome-sobrenome**.
+
+Deve conter um passo-a-passo para execução do projeto e deve ser encaminhado o APK do aplicativo para os e-mails: henrique.pereira@drcash.com.br e joao.vilela@drcash.com.br
 
 O processo de Pull Request funciona da seguinte maneira:
 
