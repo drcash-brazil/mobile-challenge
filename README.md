@@ -71,14 +71,14 @@ Rota da Listagem de Clínicas: https://apihml.drcash.com.br/api/v1/clinics/publi
 
 
 ```
-Parâmetros para Requisição
+Parâmetros Query para Requisição
 
 {
-  "pageNumber":
-  "pageSize":
-  "orderBy":
-  "city":
-  "state":
+  "pageNumber"
+  "pageSize"
+  "orderBy"
+  "city"
+  "state"
 }
 ```
 
