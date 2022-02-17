@@ -1,3 +1,9 @@
+# RESPOSTA FUTURO:
+- Filtro na pagina home
+- Tela para mostrar as clinicas com imagens
+- Mapa
+- Tracar rota a ate a clinica.
+
 # Mobile Challenge
 
 Seja bem-vindo ao repositório do projeto DrCashClinic, um caso de uso que deve ser implementado como um aplicativo.
