@@ -124,7 +124,7 @@ Retorno da Lista de Clínicas
 
 ## O que será avaliado:
 > Principal
-- Atenção com UI/UX (Isso é muuuito importante pra gente! Nossos apps são recomendados como inspiração);
+- Atenção com UI/UX (Isso é muuuito importante pra gente!);
 - Colaboração através do GitHub. Abrindo Pull Requests para features isoladas no aplicativo, respondendo e resolvendo comentários e sugestões.
 - Seguir guidelines e padrões do sistema iOS/Android;
 - Estrutura e solução dos problemas;
