@@ -145,7 +145,7 @@ Depois de implementar a solução, envie um **pull request** para este repositó
 
 O nome da branch deve seguir o seguinte padrão: **nome-sobrenome**.
 
-Deve conter um passo-a-passo para execução do projeto e deve ser encaminhado o APK do aplicativo para os e-mails: henrique.pereira@drcash.com.br e joao.vilela@drcash.com.br
+Deve conter um passo-a-passo para execução do projeto.
 
 O processo de Pull Request funciona da seguinte maneira:
 
