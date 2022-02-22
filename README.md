@@ -1,16 +1,48 @@
-# Dr. Cash Clinic
+# Dr. Cash Clinic - Lista de Clinicas para usuários.
 
-A new Flutter project.
+A ideia desse desafio é desenvolver um aplicativo simples que consiste em uma tela de login, uma tela com os objetivos de um usuário e uma tela com os detalhes do objetivo.
 
-## Getting Started
+## Contexto do Projeto
 
-This project is a starting point for a Flutter application.
+Fazer com que um determinado usuário possa encontrar através de uma busca uma boa clínica estética para ele ou outros poderem realizar procedimentos. 
+A busca consiste em trazer através de uma lista todas as clínicas da região do usuário.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Objetivos de Desenvolvimento
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [SPLASH SCREEN] - Tela inicial de abertura do app para boas vindas ao usuário.
+- [LOGIN SCREEN] - Tela para que o usuário possa logar ao sistema ou se cadastrar caso ainda não tenha conta na plataforma do DR. Chash Clinic. 
+- [HOME SCREEN] - Tela que trará um ambiente agradável ao user contendo recursos de listagem das clinicas e suas devidas informações primárias. 
+- [MODAL SCREEN] - Tela que exibirá detalhes da clínica selecionada pelo usuário na tela de home screen. 
+
+
+## Tecnologias Utilizadas
+
+> ## Flutter Version: 2.11.0-0.0pre.634.
+
+* Flutter
+* Flutter Version Management
+* Http
+* Provider
+* Faker
+* Meta
+* Git
+* Flutter Secure Storage
+* LocalStorage
+* i18n
+* Image Test Utils
+* Network Image Mock
+
+## Principios a serem abordados no desenvolvimento
+
+> Flutter Modular
+> SOLID
+> Design Patterns
+> Dependency Injection
+
+> ## Metodologias e Designs
+
+* TDD
+* Clean Arquiteture
+* Modular Designs
+* Use Cases
