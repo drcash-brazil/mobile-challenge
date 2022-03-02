@@ -1,0 +1,11 @@
+{
+  "login": "Iniciar Sessión",
+
+  "user": "Usuario",
+  "enterUser": "Ingrese su  usuario",
+  "pleaseEnterUser": "Por favor, ingrese su usuario!",
+
+  "password": "Contraseña",
+  "enterPassword": "Ingressa tu contraseña",
+  "pleaseEnterPassword": "Por favor, introduzca su contraseña!"
+}

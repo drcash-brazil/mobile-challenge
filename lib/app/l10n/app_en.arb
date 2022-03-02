@@ -1,0 +1,18 @@
+{
+  "login": "Log in",
+  "@login": {},
+
+  "user": "User",
+  "@user": {},
+  "enterUser": "Enter your user",
+  "@enterUser": {},
+  "pleaseEnterUser": "Please, enter your user",
+  "@pleaseEnterUser": {},
+
+  "password": "Password",
+  "@password": {},
+  "enterPassword": "Enter your password",
+  "@enterPassword": {},
+  "pleaseEnterPassword": "Please, enter your password",
+  "@pleaseEnterPassword": {}
+}
