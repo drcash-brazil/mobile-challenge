@@ -1,4 +1,5 @@
 import 'package:dr_cash_clinic/app/modules/home/home_page.dart';
+import 'package:dr_cash_clinic/app/modules/login/login_screen_page.dart';
 import 'package:dr_cash_clinic/app/modules/splash/splash_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -11,6 +12,7 @@ class AppModule extends Module {
   @override
   final List<ModularRoute> routes = [
     ChildRoute(Modular.initialRoute, child: (_, args) => const SplashPage()),
+    ChildRoute('/login', child: (context, args) => const LoginScreenPage()),
     ChildRoute('/home', child: (context, args) => const HomePage()),
     //ModuleRoute(Modular.initialRoute, module: HomeModule()),
   ];

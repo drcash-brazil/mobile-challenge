@@ -6,6 +6,6 @@ class SplashModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    RedirectRoute('/', to: '/home'),
+    RedirectRoute('/', to: '/login'),
   ];
 }
