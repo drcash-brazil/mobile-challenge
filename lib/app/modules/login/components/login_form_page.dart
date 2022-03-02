@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class LoginFormPage extends StatefulWidget {
   final String title;
-  const LoginFormPage({Key? key, this.title = 'LoginFormPage'}) : super(key: key);
+  const LoginFormPage({Key? key, this.title = 'LoginFormPage'})
+      : super(key: key);
   @override
   LoginFormPageState createState() => LoginFormPageState();
 }
+
 class LoginFormPageState extends State<LoginFormPage> {
   @override
   Widget build(BuildContext context) {
