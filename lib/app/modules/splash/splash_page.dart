@@ -1,3 +1,4 @@
+import 'package:dr_cash_clinic/app/core/constants.dart';
 import 'package:dr_cash_clinic/app/modules/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
@@ -17,13 +18,14 @@ class SplashPageState extends State<SplashPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: AnimatedSplashScreen(
-        splash: Image.asset('assets/logo_black.png'),
+        splash: Image.asset('assets/images/logofullbranco@2x.png'),
         //nextScreen: const LoginScreenPage(),
         nextScreen: const HomePage(),
         //nextScreen: const NoteList(),
         splashTransition: SplashTransition.sizeTransition,
         //nextScreen: nextScreen),
-        backgroundColor: Colors.teal.shade400,
+
+        backgroundColor: kPrimaryColor,
         duration: 3000,
       ),
     );

@@ -5,5 +5,7 @@ class SplashModule extends Module {
   final List<Bind> binds = [];
 
   @override
-  final List<ModularRoute> routes = [];
+  final List<ModularRoute> routes = [
+    RedirectRoute('/', to: '/home'),
+  ];
 }

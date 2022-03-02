@@ -29,6 +29,7 @@ dependencies:
   mobx: ^2.0.6+1
   http: ^0.13.4
   flutter_svg: ^1.0.3
+  provider: ^5.0.0-nullsafety.5
 
 dev_dependencies:
   flutter_test:
@@ -55,12 +56,12 @@ flutter:
 
   # example:
   fonts:
-    - family: Montserrat, sans-serif
+    - family: Montserrat
       fonts:
-        - asset: fonts/Montserrat-Regular.ttf
-        - asset: fonts/Montserrat-SemiBold.ttf
+        - asset: assets/fonts/Montserrat-Regular.ttf
+        - asset: assets/fonts/Montserrat-SemiBold.ttf
           weight: 600
-        - asset: fonts/Montserrat-Bold.ttf
+        - asset: assets/fonts/Montserrat-Bold.ttf
           weight: 700
   #
   # For details regarding fonts from package dependencies,

@@ -1,3 +1,4 @@
+import 'package:dr_cash_clinic/app/core/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -5,8 +6,9 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Dr. Chash Clinics',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: theme(),
     ).modular();
   }
 }

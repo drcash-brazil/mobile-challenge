@@ -1,13 +1,17 @@
+import 'package:dr_cash_clinic/app/modules/home/home_page.dart';
+import 'package:dr_cash_clinic/app/modules/splash/splash_page.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'modules/home/home_module.dart';
 
 class AppModule extends Module {
   @override
-  final List<Bind> binds = [];
+  final List<Bind> binds = [Bind.lazySingleton((i) => HomeModule())];
 
   @override
   final List<ModularRoute> routes = [
-    ModuleRoute(Modular.initialRoute, module: HomeModule()),
+    ChildRoute(Modular.initialRoute, child: (_, args) => const SplashPage()),
+    ChildRoute('/home', child: (context, args) => const HomePage()),
+    //ModuleRoute(Modular.initialRoute, module: HomeModule()),
   ];
 }
