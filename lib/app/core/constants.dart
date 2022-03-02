@@ -1,14 +1,14 @@
 import 'package:dr_cash_clinic/app/core/size_config.dart';
 import 'package:flutter/material.dart';
 
-const kPrimaryColor = Color(0xFF0ad6e4);
-const kPrimaryLightColor = Color(0xFf28a0d9);
+const kPrimaryColor = Color(0xFF06D6A0);
+const kPrimaryLightColor = Color(0xFd09efb1);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
-  colors: [Color(0xFF0ad6e4), Color(0xFf28a0d9)],
+  colors: [Color(0xFF06D6A0), Color(0xFd09efb1)],
 );
-const kSecondaryColor = Color(0xFF555763);
+const kSecondaryColor = Color(0xffffffff);
 const kTextColor = Color(0xFF000000);
 
 const kAnimationDuration = Duration(milliseconds: 200);
