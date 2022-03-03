@@ -1,6 +1,6 @@
 import 'package:dr_cash_clinic/app/modules/clinics/clinics_page.dart';
+import 'package:flutter_modular_test/flutter_modular_test.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:modular_test/modular_test.dart';
 
 main() {
   group('ClinicsPage', () {
