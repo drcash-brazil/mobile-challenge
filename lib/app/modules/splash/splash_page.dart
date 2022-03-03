@@ -22,9 +22,8 @@ class SplashPageState extends State<SplashPage> {
         nextScreen: const LoginScreenPage(),
         //nextScreen: const HomePage(),
         //nextScreen: const NoteList(),
-        splashTransition: SplashTransition.sizeTransition,
+        splashTransition: SplashTransition.fadeTransition,
         //nextScreen: nextScreen),
-
         backgroundColor: kPrimaryColor,
         duration: 3000,
       ),

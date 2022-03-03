@@ -11,7 +11,9 @@ class AppModule extends Module {
 
   @override
   final List<ModularRoute> routes = [
-    ChildRoute(Modular.initialRoute, child: (_, args) => const SplashPage()),
+    ChildRoute(Modular.initialRoute,
+        child: (_, args) => const SplashPage(),
+        transition: TransitionType.leftToRightWithFade),
     ChildRoute('/login', child: (context, args) => const LoginScreenPage()),
     ChildRoute('/home', child: (context, args) => const HomePage()),
     //ModuleRoute(Modular.initialRoute, module: HomeModule()),
