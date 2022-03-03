@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 main() {
   group('ClinicsPage', () {
     testWidgets('has a title and message', (WidgetTester tester) async {
-      await tester.pumpWidget(buildTestableWidget(ClinicsPage(title: 'T')));
+      await tester.pumpWidget(buildTestableWidget(const ClinicsPage()));
       final titleFinder = find.text('T');
       expect(titleFinder, findsOneWidget);
     });
