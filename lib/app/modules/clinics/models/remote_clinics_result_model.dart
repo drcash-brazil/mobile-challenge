@@ -1,6 +1,7 @@
-import '../../domain/entities/entities.dart';
-import '../http/http.dart';
-import './models.dart';
+import 'package:dr_cash_clinic/app/modules/clinics/models/remote_clinics_details_model.dart';
+
+import '../../../core/entities/entities.dart';
+import '../../../core/http/http.dart';
 
 class RemoteClinicResultModel {
   final List<RemoteClinicsDetailsModel> data;

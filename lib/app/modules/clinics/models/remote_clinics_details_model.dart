@@ -1,5 +1,6 @@
-import '../../domain/entities/entities.dart';
-import '../http/http.dart';
+import 'package:dr_cash_clinic/app/core/http/http.dart';
+
+import '../../../core/entities/entities.dart';
 
 class RemoteClinicsDetailsModel {
   final int id;
