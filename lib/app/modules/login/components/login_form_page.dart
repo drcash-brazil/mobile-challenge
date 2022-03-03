@@ -82,7 +82,7 @@ class LoginFormPageState extends State<LoginFormPage> {
           FormError(errors: errors),
           SizedBox(height: getProportionateScreenHeight(20)),
           DefaultButton(
-            text: "Continue",
+            text: "Entrar",
             press: () async {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
@@ -138,6 +138,8 @@ class LoginFormPageState extends State<LoginFormPage> {
       },
       decoration: const InputDecoration(
         labelText: "Password",
+        // enabledBorder: OutlineInputBorder(
+        //     borderSide: BorderSide(color: kPrimaryColor),),
         hintText: "Enter your password",
         // If  you are using latest version of flutter then lable text and hint text shown like this
         // if you r using flutter less then 1.20.* then maybe this is not working properly

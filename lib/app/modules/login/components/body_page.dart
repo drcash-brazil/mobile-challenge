@@ -26,7 +26,7 @@ class BodyPageState extends State<BodyPage> {
               children: [
                 SizedBox(height: SizeConfig.screenHeight * 0.04),
                 Text(
-                  "Welcome Back",
+                  "Seja Bem vindo",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: getProportionateScreenWidth(28),
@@ -34,7 +34,7 @@ class BodyPageState extends State<BodyPage> {
                   ),
                 ),
                 const Text(
-                  "Sign in with your email and password  \nor continue with social media",
+                  "Insira seu email e senha \ou conecte-se utilizando uma rede social",
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.08),
