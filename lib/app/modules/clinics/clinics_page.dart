@@ -121,7 +121,13 @@ class _ClinicsPageState extends State<ClinicsPage> {
             TextField(
               onChanged: (value) => _runFilter(value),
               decoration: const InputDecoration(
-                  labelText: 'Search', suffixIcon: Icon(Icons.search)),
+                  labelText: 'Pesquisar',
+                  labelStyle: TextStyle(color: kPrimaryColor),
+                  focusColor: kPrimaryColor,
+                  suffixIcon: Icon(
+                    Icons.search,
+                    color: kPrimaryColor,
+                  )),
             ),
             const SizedBox(
               height: 20,
@@ -150,20 +156,99 @@ class _ClinicsPageState extends State<ClinicsPage> {
                     ? ListView.builder(
                         itemCount: foundClinics.length,
                         itemBuilder: (context, index) => Card(
-                          key: ValueKey(foundClinics[index].id),
-                          color: Colors.amberAccent,
-                          elevation: 4,
-                          margin: const EdgeInsets.symmetric(vertical: 10),
-                          child: ListTile(
-                            leading: Text(
-                              foundClinics[index].id.toString(),
-                              style: const TextStyle(fontSize: 24),
-                            ),
-                            title: Text(foundClinics[index].tradingName),
-                            subtitle:
-                                Text('${foundClinics[index].city.toString()} '),
-                          ),
-                        ),
+                            key: ValueKey(foundClinics[index].id),
+                            color: kPrimaryColor,
+                            elevation: 4,
+                            child: ListTile(
+                              leading: FlutterLogo(
+                                size: 30,
+                              ),
+                              title: Text(
+                                foundClinics[index].tradingName,
+                                style: const TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              subtitle: Text(
+                                '${foundClinics[index].clinicType} ',
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              trailing: IconButton(
+                                  icon: Icon(
+                                    Icons.more_vert,
+                                    color: Colors.white,
+                                  ),
+                                  onPressed: () {
+                                    showModalBottomSheet<Datum>(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return Container(
+                                          height: 200,
+                                          color: kPrimaryColor,
+                                          child: Center(
+                                            child: Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: <Widget>[
+                                                Text(
+                                                  '${foundClinics[index].tradingName}',
+                                                  style: const TextStyle(
+                                                      fontSize: 14,
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                Text(
+                                                  '${foundClinics[index].clinicType} ',
+                                                  style: TextStyle(
+                                                      fontSize: 14,
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                Text(
+                                                  '${foundClinics[index].city} - ${foundClinics[index].state}',
+                                                  style: TextStyle(
+                                                      fontSize: 14,
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                Text(
+                                                  '${foundClinics[index].phoneNumber}',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                Text(
+                                                  '${foundClinics[index].isActive}',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                                ElevatedButton(
+                                                  child: const Text('Fechar'),
+                                                  onPressed: () =>
+                                                      Navigator.pop(context),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    );
+                                  }),
+                              isThreeLine: true,
+                            )),
                       )
                     : const Text(
                         'No results found',
