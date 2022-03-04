@@ -26,7 +26,7 @@ class BodyPageState extends State<BodyPage> {
               children: [
                 SizedBox(height: SizeConfig.screenHeight * 0.04),
                 Text(
-                  "Seja Bem vindo",
+                  "Seja Bem vindo ao Dr. Clinics",
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: getProportionateScreenWidth(28),

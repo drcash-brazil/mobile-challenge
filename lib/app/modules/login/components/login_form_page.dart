@@ -66,14 +66,14 @@ class LoginFormPageState extends State<LoginFormPage> {
                   });
                 },
               ),
-              const Text("Remember me"),
+              const Text("Lembrar me"),
               const Spacer(),
               GestureDetector(
                 // onTap: () => Navigator.pushNamed(
                 //     context, ForgotPasswordScreen.routeName),
                 onTap: () {},
                 child: const Text(
-                  "Forgot Password",
+                  "Esqueci minha senha",
                   style: TextStyle(decoration: TextDecoration.underline),
                 ),
               )
@@ -137,10 +137,10 @@ class LoginFormPageState extends State<LoginFormPage> {
         return null;
       },
       decoration: const InputDecoration(
-        labelText: "Password",
+        labelText: "Senha",
         // enabledBorder: OutlineInputBorder(
         //     borderSide: BorderSide(color: kPrimaryColor),),
-        hintText: "Enter your password",
+        hintText: "Entre com sua senha",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
@@ -172,7 +172,7 @@ class LoginFormPageState extends State<LoginFormPage> {
       },
       decoration: const InputDecoration(
         labelText: "Email",
-        hintText: "Enter your email",
+        hintText: "Entre com seu email",
         floatingLabelBehavior: FloatingLabelBehavior.always,
         suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Mail.svg"),
       ),
