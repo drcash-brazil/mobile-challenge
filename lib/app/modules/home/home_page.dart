@@ -3,7 +3,6 @@ import 'package:dr_cash_clinic/app/core/constants.dart';
 import 'package:dr_cash_clinic/app/core/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'home_store.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -13,7 +12,7 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends ModularState<HomePage, HomeStore> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -63,7 +62,9 @@ class _HomePageState extends ModularState<HomePage, HomeStore> {
               ),
               SizedBox(height: SizeConfig.screenHeight * 0.02),
               DefaultButton(
-                press: () {},
+                press: () {
+                  Modular.to.navigate('/clinics');
+                },
                 text: 'Pesquisar Cidades',
               ),
               SizedBox(height: SizeConfig.screenHeight * 0.02),

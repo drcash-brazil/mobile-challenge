@@ -16,12 +16,12 @@ ThemeData theme() {
 InputDecorationTheme inputDecorationTheme() {
   OutlineInputBorder outlineInputBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(28),
-    borderSide: BorderSide(color: kTextColor),
+    borderSide: const BorderSide(color: kTextColor),
     gapPadding: 10,
   );
   return InputDecorationTheme(
     floatingLabelBehavior: FloatingLabelBehavior.always,
-    contentPadding: EdgeInsets.symmetric(horizontal: 42, vertical: 20),
+    contentPadding: const EdgeInsets.symmetric(horizontal: 42, vertical: 20),
     enabledBorder: outlineInputBorder,
     focusedBorder: outlineInputBorder,
     border: outlineInputBorder,
@@ -29,23 +29,23 @@ InputDecorationTheme inputDecorationTheme() {
 }
 
 TextTheme textTheme() {
-  return TextTheme(
-    bodyText1: TextStyle(color: kTextColor),
-    bodyText2: TextStyle(color: kTextColor),
+  return const TextTheme(
+    bodyText1: const TextStyle(color: kTextColor),
+    bodyText2: const TextStyle(color: kTextColor),
   );
 }
 
 AppBarTheme appBarTheme() {
   return AppBarTheme(
-    color: Colors.white,
+    color: const Color(0xFd09efb1),
     elevation: 0,
-    iconTheme: IconThemeData(color: Colors.black),
+    iconTheme: const IconThemeData(color: Colors.white),
     systemOverlayStyle: SystemUiOverlayStyle.dark,
     toolbarTextStyle: TextTheme(
-      headline6: TextStyle(color: Color(0XFF8B8B8B), fontSize: 18),
+      headline6: const TextStyle(color: Color(0xFd09efb1), fontSize: 18),
     ).bodyText2,
-    titleTextStyle: TextTheme(
-      headline6: TextStyle(color: Color(0XFF8B8B8B), fontSize: 18),
+    titleTextStyle: const TextTheme(
+      headline6: TextStyle(color: Color(0xFd09efb1), fontSize: 18),
     ).headline6,
   );
 }

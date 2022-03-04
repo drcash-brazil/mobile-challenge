@@ -1,3 +1,4 @@
+import 'package:dr_cash_clinic/app/modules/clinics/clinics_page.dart';
 import 'package:dr_cash_clinic/app/modules/clinics/repository/clinics_repository.dart';
 import 'package:dr_cash_clinic/app/modules/home/home_page.dart';
 import 'package:dr_cash_clinic/app/modules/login/login_screen_page.dart';
@@ -20,6 +21,7 @@ class AppModule extends Module {
         transition: TransitionType.leftToRightWithFade),
     ChildRoute('/login', child: (context, args) => const LoginScreenPage()),
     ChildRoute('/home', child: (context, args) => const HomePage()),
+    ChildRoute('/clinics', child: (context, args) => const ClinicsPage()),
     //ModuleRoute(Modular.initialRoute, module: HomeModule()),
   ];
 }

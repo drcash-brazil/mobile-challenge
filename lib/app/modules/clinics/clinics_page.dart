@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:dr_cash_clinic/app/core/constants.dart';
+import 'package:dr_cash_clinic/app/core/size_config.dart';
 import 'package:dr_cash_clinic/app/modules/clinics/models/remote_clinics_details_model.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -104,9 +106,12 @@ class _ClinicsPageState extends State<ClinicsPage> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Infinite List Pagination"),
+        backgroundColor: kPrimaryColor,
+        title: const Text("Pesquisar Clinicas",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
