@@ -18,27 +18,27 @@ A busca consiste em trazer através de uma lista todas as clínicas da região d
 
 ## Tecnologias Utilizadas
 
-> ## Flutter Version: 2.11.0-0.0pre.634.
+> ## Flutter Version: 2.17.0-105.0.dev.
 
-* Flutter
-* Flutter Version Management
-* Http
-* Provider
-* Faker
-* Meta
-* Git
-* Flutter Secure Storage
-* LocalStorage
-* i18n
-* Image Test Utils
-* Network Image Mock
+* ✅Flutter
+* ✅Flutter Version Management
+* ✅Http
+* ✅Provider
+* ❌Faker
+* ❌Meta
+* ✅Git
+* ❌Flutter Secure Storage
+* ❌LocalStorage
+* ❌i18n
+* ❌Image Test Utils
+* ❌Network Image Mock
 
 ## Principios a serem abordados no desenvolvimento
 
-> Flutter Modular
-> SOLID
-> Design Patterns
-> Dependency Injection
+> ✅Flutter Modular
+> ✅SOLID
+> ✅Design Patterns
+> ✅Dependency Injection
 
 > ## Metodologias e Designs
 
@@ -46,3 +46,14 @@ A busca consiste em trazer através de uma lista todas as clínicas da região d
 * Clean Arquiteture
 * Modular Designs
 * Use Cases
+
+## Melhorias Futuras
+
+* Melhoria da interface a layouts;
+* Correção de possiveis bugs nesta versão;
+* Finalização das rotinas de autenticação do usuário;
+* Finalização das rotinas de pesquisas por parametros; 
+* Inclusão de login por autenticação digital;
+* Inclusão de rotina que captura a localização do usuário para listagem das clinicas por região\estado\cidade. 
+
+
