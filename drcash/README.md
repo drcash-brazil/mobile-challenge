@@ -1,16 +1,16 @@
-# drcash
+# DrCash
 
-A new Flutter project.
+## Dúvida
 
-## Getting Started
+Qual o sentido de gerar um token? Se a api está como pública e assim qualquer pessoa
+que tenha acesso ela pode pegar os dados. Porque não requer nehhum método de autenticação é requerido. 
 
-This project is a starting point for a Flutter application.
+## Listagem de Clinícas
 
-A few resources to get you started if this is your first Flutter project:
+Fiz três tipos de listagem todas por cidades e UF.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Futuro
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Listagem das clinícas podem também serem feitos por geolocalização do usuário, ou seja, após usuário fazer o login pode pegar a localização dele e fazer uma buscar para saber se clínica na região.
+
+Outro ponto é autenticar a API e solicitando o token do usuário nas requsições
