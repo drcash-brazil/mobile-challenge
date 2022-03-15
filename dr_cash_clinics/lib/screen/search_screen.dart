@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dr_cash_clinics/models/clinic.dart';
 import 'package:dr_cash_clinics/services/api.dart';
+import 'package:dr_cash_clinics/utils/dialogs.dart';
 import 'package:dr_cash_clinics/utils/widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,52 +19,55 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   var searchCont = TextEditingController();
   List<Clinic>? listClinics = null;
+  GlobalKey<State> _keyLoader = GlobalKey<State>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: appBar(context, "Dr. Cash Clinics"),
-      body: Column(
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(16),
-              child: Container(
-                decoration: boxDecoration(bgColor: Colors.white, radius: 10, showShadow: true),
-                child: TextField(
-                  controller: searchCont,
-                  textAlignVertical: TextAlignVertical.center,
-                  autofocus: false,
-                  style: TextStyle(),
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: Colors.white,
-                    hintText: "Buscar: Cidade ou UF",
-                    hintStyle: TextStyle(),
-                    border: InputBorder.none,
-                    suffixIcon: IconButton(
-                      color: Color(0XFF09efb1), icon: Icon(Icons.search),
-                      onPressed: () => {_search()},
+      body: SafeArea(
+        child: Column(
+            children: <Widget>[
+              Padding(
+                padding: EdgeInsets.all(16),
+                child: Container(
+                  decoration: boxDecoration(bgColor: Colors.white, radius: 10, showShadow: true),
+                  child: TextField(
+                    controller: searchCont,
+                    textAlignVertical: TextAlignVertical.center,
+                    autofocus: false,
+                    style: TextStyle(),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      hintText: "Pesquisar",
+                      hintStyle: TextStyle(),
+                      border: InputBorder.none,
+                      suffixIcon: IconButton(
+                        color: Color(0XFF09efb1), icon: Icon(Icons.search),
+                        onPressed: () => _search(),
+                      ),
+                      contentPadding: EdgeInsets.only(left: 26.0, bottom: 8.0, top: 8.0, right: 50.0),
                     ),
-                    contentPadding: EdgeInsets.only(left: 26.0, bottom: 8.0, top: 8.0, right: 50.0),
                   ),
+                  alignment: Alignment.center,
                 ),
-                alignment: Alignment.center,
               ),
-            ),
-            body(),
-          ],
-        ),
+              body(),
+            ],
+          ),
+      ),
       );
   }
 
   Widget body() {
-    return Expanded(
-      child: FutureBuilder<dynamic>(
-        future: _search(),
-        builder: ((context, snapshot) {
-          if (snapshot.hasData) {
-                 return ListView.builder(
+    return StreamBuilder<dynamic>(
+      stream: Network().getClinics(searchCont.text, "/clinics/public").asStream(),
+      builder: ((context, snapshot) {
+        if (snapshot.hasData) {
+               return Expanded(
+                 child: ListView.builder(
                     shrinkWrap: true,
                     itemCount: snapshot.data.length,
                     itemBuilder: (context, index) {
@@ -76,17 +80,20 @@ class _SearchScreenState extends State<SearchScreen> {
                                   CustomDialog(model: snapshot.data[index]),
                             )
                           });
-                    });
-          } else {
-            return Expanded(child: Container(child: ring("Nenhuma clínica encontrada referente à pesquisa.")));
-          }
-        }),
-      ),
+                    }),
+               );
+        } else {
+          return Expanded(child: Container(child: ring("Bem-vindo(a) ao Dr. Cash Clinics")));
+        }
+      }),
     );
   }
 
   _search() async {
-    return await Network().getClinics(searchCont.text, "/clinics/public");
+    Dialogs.showLoadingDialog(context, _keyLoader, "Por favor, aguarde!");
+    var res = await Network().getClinics(searchCont.text, "/clinics/public");
+    Navigator.of(context).pop();
+    return res;
   }
 }
 
