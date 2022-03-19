@@ -18,30 +18,16 @@ class LoginStore = LoginStoreBase with _$LoginStore;
 abstract class LoginStoreBase with Store {
   //----------------------------------------------------------------------------
   LoginStoreBase({required this.loginController}) {
-    focusCnpj = FocusNode();
     focusLogin = FocusNode();
     focusPassword = FocusNode();
   }
 
   final LoginController loginController;
 
-  late final FocusNode focusCnpj;
   late final FocusNode focusLogin;
   late final FocusNode focusPassword;
 
   AppStore get appStore => loginController.appStore;
-
-  //----------------------------------------------------------------------------
-  @observable
-  String? cnpj;
-
-  //----------------------------------------------------------------------------
-  @action
-  void setCnpj(String newCnpj) => cnpj = newCnpj.trim();
-
-  //----------------------------------------------------------------------------
-  @observable
-  String? messageCnpjError;
 
   //----------------------------------------------------------------------------
 
@@ -75,19 +61,6 @@ abstract class LoginStoreBase with Store {
   //----------------------------------------------------------------------------
   @observable
   bool keepConnected = true;
-
-  //----------------------------------------------------------------------------
-  bool cnpjValidate(BuildContext context, {bool requestFocus = false}) {
-    messageCnpjError = null;
-    if (cnpj == null || cnpj!.isEmpty) {
-      messageCnpjError = 'Campo obrigatório';
-      if (requestFocus) {
-        focusCnpj.requestFocus();
-      }
-      return false;
-    }
-    return true;
-  }
 
   //----------------------------------------------------------------------------
   bool loginValidate(BuildContext context, {bool requestFocus = false}) {
@@ -138,9 +111,6 @@ abstract class LoginStoreBase with Store {
   @action
   Future<void> autenticate(
       BuildContext context, String title, String text) async {
-    if (!cnpjValidate(context, requestFocus: true)) {
-      return;
-    }
     if (!loginValidate(context, requestFocus: true)) {
       return;
     }
@@ -149,7 +119,6 @@ abstract class LoginStoreBase with Store {
     }
     if (messageLoginError == null &&
         messagePasswordError == null &&
-        messageCnpjError == null &&
         !isLoading) {
       isLoading = true;
       ApiResponseModel? apiResponseModel = await loginController.signIn(
@@ -161,10 +130,6 @@ abstract class LoginStoreBase with Store {
       );
       if (apiResponseModel != null && apiResponseModel.statusCode == 200) {
         isLoading = false;
-        // appStore.userModel =
-        //     LoginResponseModel.fromJson(apiResponseModel.data).user;
-        // appStore.token =
-        //     LoginResponseModel.fromJson(apiResponseModel.data).token;
         appStore.checkConnectivityPushNamed(
           context: context,
           rout: AppRouteNamed.home.fullPath!,

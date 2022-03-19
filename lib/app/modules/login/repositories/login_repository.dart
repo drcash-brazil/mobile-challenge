@@ -20,17 +20,19 @@ class LoginRepository implements ILoginRepository {
     context,
   }) async {
     try {
-      ApiResponseModel response = await _api.call(
-          type: EApiType.post,
-          url: ApiRoutes.authAuthenticate,
-          data: loginFormulary.toJson(),
-          headers: {'Content-Type': 'application/json'}).catchError((e) {
+      ApiResponseModel response = await _api
+          .call(type: EApiType.post, url: ApiRoutes.authAuthenticate, data: {
+        "email": loginFormulary.login,
+        "password": loginFormulary.password,
+      }, headers: {
+        'Content-Type': 'application/json'
+      }).catchError((e) {
         awesomeDialogWidget(
             context: context,
             animType: AnimType.SCALE,
             dialogType: DialogType.NO_HEADER,
-            text: e.response.data['messages'][0]['message'],
-            title: e.response.data['title'],
+            text: e.response.data['errors'][0],
+            title: 'Ocorreu um erro',
             borderColor: Colors.red,
             buttonColor: Colors.red.shade800,
             btnOkOnPress: () {});

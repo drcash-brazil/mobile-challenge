@@ -45,8 +45,8 @@ class LoginController {
                 context: context,
                 animType: AnimType.SCALE,
                 dialogType: DialogType.NO_HEADER,
-                text: apiResponseModel.data['messages'][0]['message'],
-                title: apiResponseModel.data['title'],
+                text: apiResponseModel.data['errors'][0],
+                title: 'Ocorreu um erro',
                 borderColor: apiResponseModel.statusCode == 401
                     ? ColorsConstants.yellow
                     : Colors.red,
