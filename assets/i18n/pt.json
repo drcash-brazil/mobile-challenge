@@ -1,0 +1,48 @@
+{
+  "global": {
+    "aviso": "Aviso",
+    "semConexao" : "Ops\nVerifique sua conexão com a internet e tente novamente."
+  },
+  "telaPrescricao": {
+    "codigo": "Código"
+  },
+  "telaHome": {
+    "remedios": "Remédios",
+    "receitas" : "Receitas",
+    "dristibutors" : "Distribuidores"
+  },
+  "telaLogin": {
+    "usuario": "Usuário",
+    "senha": "Senha",
+    "esqueceuSuaSenha": "Esqueceu sua senha ?",
+    "entrar": "Entrar",
+    "ou": "ou",
+    "cadastrar": "Cadastre-se",
+    "entrarSemConexao" : "É necessario estar conectado a internet.",
+    "cadastrarSemConexao" : "É necessario estar conectado a internet para realizar o cadrastro.",
+    "esqueceuSenhaSemConexao" : "É necessario estar conectado a internet para realizar a troca da senha."
+  },
+  "telaRecoveryPassword": {
+    "email": "Email",
+    "recuperarSenha": "Recuperar Senha",
+    "verificarEmail": "Verificar Email",
+    "alterarSenha": "Alterar Senha",
+    "infoAlteracaoDeSenha": "Alteração de senha",
+    "infoSenhaAlteradaComSucesso": "Sua senha foi alterada com sucesso!",
+    "confirmacaoDeSEnha": "Confirmacao de Senha",
+    "codigo": "Código"
+  },
+  "telaCadastroUsuario": {
+    "cadastro": "Cadastro",
+    "cpf": "CPF",
+    "nome": "Nome",
+    "email": "Email",
+    "confirmacaoEmail": "Confirmação de Email",
+    "senha": "Senha",
+    "confirmacaoSenha": "Confirmação de Senha",
+    "sucesso" : "Sucesso",
+    "msgConfirmacaoCadastro" : "Usuário cadastrado com sucesso.\nAguarde a liberaçao do administrador.",
+    "cadastrar": "Cadastrar",
+    "cadastrarSemConexao" : "É necessario estar conectado a internet para realizar o cadrastro."
+  }
+}
