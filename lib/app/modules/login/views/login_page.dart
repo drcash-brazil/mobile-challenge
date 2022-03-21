@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import '../stores/login_store.dart';
 import '../../../app_routing.dart';
@@ -44,6 +45,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginStore>
     if (widget.sucess) {
       store.startTimer(context);
     }
+    FlutterNativeSplash.remove();
   }
 
   @override

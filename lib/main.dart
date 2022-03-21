@@ -6,12 +6,13 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'app/app_module.dart';
 import 'app/app_widget.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 // TODO: call the firebase when its possible
 Future<void> main() async {
   runZonedGuarded(() {
-    WidgetsFlutterBinding.ensureInitialized();
-
+    WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
     FlutterError.onError = (FlutterErrorDetails errorDetails) {};
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
         .then((_) {
