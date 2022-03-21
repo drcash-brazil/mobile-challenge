@@ -73,7 +73,7 @@ class CustomCarouselSlider extends StatelessWidget {
                   Row(
                     children: const [
                       Icon(
-                        Icons.calendar_month,
+                        Icons.calendar_today,
                         color: Colors.white,
                         size: 13,
                       ),
