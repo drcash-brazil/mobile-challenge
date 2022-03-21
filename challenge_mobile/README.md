@@ -7,14 +7,24 @@
 
 Este projeto foi criando utilizando o Flutter & Dart.<br>
 
+## Instrução para rodar o projeto
 
-### Arquitetura do Projeto
+### 1 - Faça um clone do repositório
+```bash
+git clone https://github.com/celestinolopes/mobile-challenge.git
+```
 
-O Projeto utiliza o [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). O Projeto foi dividido em dois módulos/features que são:
-<br>
--  Authentication (Modulo responsável pela autenticação do usuários)
-- Home (Modulo para listar as clinícas)
-<br><br>
+### 2 - Instale as dependencias do flutter
+```bash
+flutter pub get
+```
+### 3 - Conecte o seu celular/imulador
+
+### 4 - Inicie a aplicação
+
+```bash
+flutter run
+```
 
 ### <b>FLUTTER </b><br>
 A versão do Flutter usado foi:
@@ -34,7 +44,14 @@ A versão do Flutter usado foi:
  - ✅ TDD
  - ✅ SOLID
  - ✅ CLEAN CODE
-   
+   <br>
+### Arquitetura do Projeto
+
+O Projeto utiliza o [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). O Projeto foi dividido em dois módulos/features que são:
+<br>
+-  Authentication (Modulo responsável pela autenticação do usuários)
+- Home (Modulo para listar as clinícas)
+<br><br>
 
 ### <b>ESTRUTURA DE ARQUIVOS</b>
  <br>Em cada módulo encontramos a seguinte estrutura de arquivos:
