@@ -1,4 +1,4 @@
-# Dr.Cash Challenge Mobile
+# Dr.Cash - Mobile Challenge  
 
 
 
@@ -14,13 +14,33 @@ O Projeto utiliza o [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2
 <br>
 -  Authentication (Modulo responsável pela autenticação do usuários)
 - Home (Modulo para listar as clinícas)
+<br><br>
 
-<br>
+### <b>FLUTTER </b><br>
+A versão do Flutter usado foi:
+- ✅ Flutter v.2.10.3
+
+### <b>TECNOLOGIAS UTILIZADAS</b></br>
+ Abaixo encontram-se alguns dos principais packages que foram utilizados no app.
+- ✅ Dio 
+- ✅ Provider
+- ✅ Faker
+- ✅ Mockito
+- ✅ DartZ
+- ✅ CachedNetWorkImage
+ ### <b>PRINCÍPOS SEGUIDOS</b></br>
  
- Em cada módulo encontramos a seguinte estrutura de pastas:
- <br>
+ - ✅ Clean Architecture
+ - ✅ TDD
+ - ✅ SOLID
+ - ✅ CLEAN CODE
+   
 
- <img src="https://github.com/celestinolopes/mobile-challenge/blob/main/challenge_mobile/assets/images/folder_structure.PNG">
+### <b>ESTRUTURA DE ARQUIVOS</b>
+ <br>Em cada módulo encontramos a seguinte estrutura de arquivos:
+ </br>
+
+ <img src="assets/images/folder_structure.png">
 
  ## Explicação da estrutura de arquivos
 
@@ -44,7 +64,7 @@ O projecto foi feito usando as boas práticas de TDD
 <br>
 Para rodar todos  os testes para usar a interface do vsCode.
 <br><br>
-<img src="https://raw.githubusercontent.com/celestinolopes/mobile-challenge/main/challenge_mobile/assets/images/test_project.PNG">
+<img src="assets/images/test_project.png">
 
 ## Injeção de Dependência
 
@@ -55,6 +75,7 @@ Para a injenção de dependências e gerenciamento de estado foi o utizado o [Pr
 - Adicionar um sistema de cache para que o app possa funcionar quando estiver offline;
 - Adicionar um campo de busca;
 - Filtrar clinícas pelo tipo serviço, localização, etc;
+-
 
 
 
