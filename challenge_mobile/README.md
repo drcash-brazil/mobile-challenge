@@ -20,7 +20,7 @@ O Projeto utiliza o [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2
  Em cada módulo encontramos a seguinte estrutura de pastas:
  <br>
 
- <img src="assets/images/folder_structure.png">
+ <img src="https://github.com/celestinolopes/mobile-challenge/blob/main/challenge_mobile/assets/images/folder_structure.PNG">
 
  ## Explicação da estrutura de arquivos
 
@@ -44,7 +44,7 @@ O projecto foi feito usando as boas práticas de TDD
 <br>
 Para rodar todos  os testes para usar a interface do vsCode.
 <br><br>
-<img src="assets/images/test_project.png">
+<img src="https://raw.githubusercontent.com/celestinolopes/mobile-challenge/main/challenge_mobile/assets/images/test_project.PNG">
 
 ## Injeção de Dependência
 
