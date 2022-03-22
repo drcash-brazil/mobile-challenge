@@ -1,4 +1,3 @@
-import 'package:challenge_mobile/app/features/clinics/presentation/pages/home_page.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'app/features/authentication/data/datasources/remote_authentication_datasource.dart';
 import 'app/features/authentication/external/datasource/drcash_authentication.dart';
 import 'app/features/authentication/presentation/pages/login_page.dart';
-import 'app/features/clinics/external/dr_cash_get_remote_clinics.dart';
+import 'app/features/home/external/dr_cash_get_remote_clinics.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(

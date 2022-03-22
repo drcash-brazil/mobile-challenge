@@ -1,8 +1,7 @@
 import 'package:challenge_mobile/app/core/error/error.dart';
 import 'package:challenge_mobile/app/core/params/clinic_params.dart';
-import 'package:challenge_mobile/app/features/clinics/data/datasources/remote_get_clinics_datasource.dart';
-import 'package:challenge_mobile/app/features/clinics/data/repositories/get_clinic_repository_impl.dart';
-import 'package:dartz/dartz.dart';
+import 'package:challenge_mobile/app/features/home/data/datasources/remote_get_clinics_datasource.dart';
+import 'package:challenge_mobile/app/features/home/data/repositories/get_clinic_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 

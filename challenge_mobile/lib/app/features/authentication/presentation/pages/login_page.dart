@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:string_validator/string_validator.dart';
 
 import '../../../../core/params/credential_params.dart';
-import '../../../clinics/presentation/pages/home_page.dart';
+import '../../../home/presentation/pages/home_page.dart';
 import '../../external/datasource/drcash_authentication.dart';
 import '../widgets/button_custom_widget.dart';
 import '../widgets/logo_app_widget.dart';
@@ -41,8 +41,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: CachedNetworkImageProvider(
-                    "https://www.drcash.com.br/img/Home/banners4.jpg"),
+                image: AssetImage("assets/images/login_background.jpg"),
                 fit: BoxFit.cover,
                 colorFilter: ColorFilter.mode(Colors.black26, BlendMode.darken),
               ),
