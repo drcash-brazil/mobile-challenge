@@ -2,13 +2,13 @@ class ApiRoutes {
   ApiRoutes._();
 
   static String get baseUrl => _productionBaseUrl;
-  static const String apiVersion = "v1";
+  static const String _apiVersion = "v1";
 
 //Homologation
 
 //Production
   static const String _productionBaseUrl =
-      "https://apihml.drcash.com.br/api/$apiVersion";
+      "https://apihml.drcash.com.br/api/$_apiVersion";
 
 //----------------------------------------------------------------------------
 

@@ -20,8 +20,6 @@ abstract class _AppStoreBase with Store {
     checkConnectivityListen();
   }
 
-  String? token;
-
   @observable
   bool isDeviceConnected = false;
 
@@ -73,9 +71,9 @@ abstract class _AppStoreBase with Store {
       bool isRootNavigator = false,
       dynamic args}) async {
     if (isReplacement) {
-      Modular.to.pushReplacementNamed(rout,arguments: args);
+      Modular.to.pushReplacementNamed(rout, arguments: args);
     } else {
-      Modular.to.pushNamed(rout, forRoot: isRootNavigator,arguments: args);
+      Modular.to.pushNamed(rout, forRoot: isRootNavigator, arguments: args);
     }
   }
 

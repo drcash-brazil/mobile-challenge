@@ -38,6 +38,9 @@ class LoginController {
             _appStore.saveUserSharedPrefs(
                 stringValue: 'userValue',
                 data: loginFormulary.login);
+            _appStore.saveUserSharedPrefs(
+                stringValue: 'passwordValue',
+                data: loginFormulary.password);
 
             return apiResponseModel;
           } else {

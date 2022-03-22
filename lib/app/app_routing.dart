@@ -1,5 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'modules/home/home_module.dart';
 import 'modules/login/login_module.dart';
 
 class AppRouting {
@@ -8,6 +9,10 @@ class AppRouting {
       AppRouteNamed.login._path!,
       module: LoginModule(),
     ),
+    ModuleRoute(
+      AppRouteNamed.home._path!,
+      module: HomeModule(),
+    )
   ];
 }
 
@@ -18,6 +23,8 @@ extension AppRouteNamedExtension on AppRouteNamed {
     switch (this) {
       case AppRouteNamed.login:
         return '/login/';
+      case AppRouteNamed.home:
+        return '/home';
       default:
         return null;
     }
