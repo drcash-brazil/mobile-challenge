@@ -18,7 +18,7 @@ class ClinicsRepository implements IClinicsRepository {
   Future<ApiResponseModel?> getAllClinics({required context}) async {
     try {
       ApiResponseModel response = await _api
-          .call(type: EApiType.get, url: ApiRoutes.getClinics, headers: {
+          .call(type: EApiType.get, url: ApiRoutes.getClinics(), headers: {
         'Content-Type': 'application/json',
       }).catchError((e) {
         awesomeDialogWidget(

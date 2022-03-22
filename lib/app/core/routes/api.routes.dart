@@ -18,7 +18,18 @@ class ApiRoutes {
 //----------------------------------------------------------------------------
 
 //CLINICS
-  static const String getClinics = "clinics/public";
+  static String getClinics(
+      {int pageNumber = 1,
+      int pageSize = 10,
+      dynamic orderBy = "state",
+      String? city,
+      String? state}) {
+    if (city != null && state != null) {
+      return "clinics/public?pageNumber=$pageNumber&pageSize$pageSize&orderBy=$orderBy&city=$city&state=$state";
+    } else {
+      return "clinics/public?pageNumber=$pageNumber&pageSize=$pageSize&orderBy=$orderBy";
+    }
+  }
 
 //----------------------------------------------------------------------------
 }

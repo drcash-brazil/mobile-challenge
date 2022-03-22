@@ -23,6 +23,7 @@ abstract class _ClinicsStoreBase with Store {
   bool isLoading = false;
 //----------------------------------------------------------------------------
   Future<void> getAllClinics({required BuildContext context}) async {
+    isLoading = true;
     ApiResponseModel? apiResponseModel =
     await clinicsController.getAllClinics(context: context);
 
@@ -31,7 +32,7 @@ abstract class _ClinicsStoreBase with Store {
         return ClinicsModel.fromJson(e);
       }).toList();
     } else {
-      isLoading = false;
+
       awesomeDialogWidget(
           context: context,
           animType: AnimType.SCALE,
@@ -42,6 +43,7 @@ abstract class _ClinicsStoreBase with Store {
           buttonColor: Colors.red.shade800,
           btnOkOnPress: () {});
     }
+    isLoading = false;
   }
 
 //----------------------------------------------------------------------------

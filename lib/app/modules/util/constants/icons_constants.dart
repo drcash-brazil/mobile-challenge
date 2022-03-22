@@ -6,6 +6,10 @@ abstract class IconConstant {
 
   static String get logoWide => 'assets/icon/logo_wide.svg';
 
+  static String get dentistry => 'assets/icon/dentistry.png';
+
+  static String get city => 'assets/icon/city.png';
+
   //----------------------------------------------------------------------------
 
   static String get noConnection => 'assets/icon/load/no_connection.svg';
