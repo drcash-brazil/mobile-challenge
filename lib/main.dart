@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile_challenge/app/bindings/application_bindings.dart';
-import 'package:mobile_challenge/app/pages/login/login_page.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:mobile_challenge/app/core/bindings/application_binding.dart';
+import 'package:mobile_challenge/app/routes/app_pages.dart';
 import 'package:mobile_challenge/app/themes/theme_ui.dart';
 
-void main() {
+void main() async {
+  await GetStorage.init(); 
   runApp(const MobileChallengeApp());
 }
 
@@ -15,11 +17,9 @@ class MobileChallengeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Dr Cash',
-      theme: ThemeUI.theme,
-      //initialBinding: ApplicationBindings(),
-      getPages: [
-        GetPage(name: '/', page: () => LoginPage())
-      ],
+      theme: ThemeUI.theme, 
+      initialBinding: ApplicationBinding(),
+      getPages: AppPages.routes,
     );
   }
 }

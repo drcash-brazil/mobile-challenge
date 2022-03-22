@@ -3,16 +3,17 @@ import 'package:get/get.dart';
 import 'package:mobile_challenge/app/core/widgets/challenge_appbar.dart';
 import 'package:mobile_challenge/app/core/widgets/challenge_button.dart';
 import 'package:mobile_challenge/app/core/widgets/challenge_textformfield.dart';
+import 'package:mobile_challenge/app/modules/login/login_controller.dart';
 import 'package:mobile_challenge/app/themes/theme_ui.dart';
 import 'package:validatorless/validatorless.dart';
 
-class LoginPage extends GetView {
+class LoginPage extends GetView<LoginController> {
 
   final _formKey = GlobalKey<FormState>();
   final _emailEC = TextEditingController();
   final _passwordEC = TextEditingController();
 
-
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,10 +92,11 @@ class LoginPage extends GetView {
                             const Text('Não possui uma conta?'),
                             TextButton(
                               onPressed: () {
-                                Get.toNamed('/auth/register');
+                               
                               },
                               child: const Text(
                                 'Cadastre-se',
+                      
                                 style: ThemeUI.textBold,
                               ),
                             ),
