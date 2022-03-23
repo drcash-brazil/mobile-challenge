@@ -47,7 +47,9 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.lightGreen,
         ),
         routes: {
-          "/login": (_) => LoginPage(),
+          "/login": (_) => BlocProvider<LoginBloc>(
+              create: (_) => LoginBloc(sessionService: sessionService),
+              child: LoginPage()),
           "/home": (_) => BlocProvider<HomeBloc>(
               create: (_) => HomeBloc(clinicsService: clinicsService),
               child: HomePage())

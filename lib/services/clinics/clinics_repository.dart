@@ -8,7 +8,7 @@ class RequestClinicsQuery {
   RequestClinicsQuery({required this.pageNumber});
 
   Map<String, int> toMap() {
-    return {"pageNumber": pageNumber ?? 1, "pageSize": 2};
+    return {"pageNumber": pageNumber ?? 1, "pageSize": 20};
   }
 }
 
