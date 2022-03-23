@@ -33,7 +33,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         title: Text(
-          "Hello, Lucas",
+          "Olá, Lucas",
           style: GoogleFonts.roboto(
               color: Colors.white, fontSize: 22, fontWeight: FontWeight.w500),
         ),

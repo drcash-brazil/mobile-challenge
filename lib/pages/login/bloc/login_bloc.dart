@@ -73,7 +73,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           email: state.email,
           password: state.password,
           saveData: state.saveData,
-          errorMessage: "Unexpected error, try later..."));
+          errorMessage: "Um erro inesperado aconteceu, tente novamente..."));
     }
   }
 }

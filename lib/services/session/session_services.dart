@@ -27,7 +27,7 @@ class SessionService {
         'access_token', '${response.tokenType} ${response.accessToken}');
     prefs.setString('refresh_token', response.refreshToken);
 
-    return "Login Successfully";
+    return "Login efetuado com sucesso!";
   }
 
   void saveCredential({required email, required password}) async {

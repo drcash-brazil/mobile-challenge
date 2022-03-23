@@ -61,7 +61,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(ErrorState(
           listClinics: state.listClinics,
           page: state.page,
-          errorMessage: "Unexpected error, try later..."));
+          errorMessage: "Um erro inesperado aconteceu, tente novamente..."));
     }
   }
 }

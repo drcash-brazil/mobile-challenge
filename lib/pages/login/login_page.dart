@@ -99,7 +99,7 @@ class LoginPage extends StatelessWidget {
                           ),
                           TextInputWidget(
                             isEmail: false,
-                            label: 'Password',
+                            label: 'Senha',
                             isPassword: true,
                             keyboardType: TextInputType.text,
                             enabled: state is! LoadingState,
@@ -131,7 +131,7 @@ class LoginPage extends StatelessWidget {
                                 },
                               ),
                               Text(
-                                "Save Email and Password?",
+                                "Salvar Email e Senha?",
                                 style: GoogleFonts.roboto(
                                     color: Color.fromARGB(255, 20, 105, 83),
                                     fontSize: 15,
@@ -179,7 +179,7 @@ class LoginPage extends StatelessWidget {
                                             Colors.lightBlue,
                                           )))
                                   : Text(
-                                      'Login',
+                                      'Entrar',
                                       style: GoogleFonts.roboto(
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500,
