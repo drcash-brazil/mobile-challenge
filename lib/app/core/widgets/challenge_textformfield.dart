@@ -7,6 +7,7 @@ class ChallengeTextformfield extends StatelessWidget {
   final bool obscureText;
   final FormFieldValidator<String>? validator;
   final ValueChanged<String>? onChange;
+  final VoidCallback? onPressedIcon;
 
   const ChallengeTextformfield(
       {Key? key,
@@ -14,7 +15,9 @@ class ChallengeTextformfield extends StatelessWidget {
       this.controller,
       this.validator,
       this.onChange,
-      this.obscureText = false})
+      this.obscureText = false,
+      this.onPressedIcon
+      })
       : super(key: key);
 
   @override
@@ -26,6 +29,9 @@ class ChallengeTextformfield extends StatelessWidget {
       onChanged: onChange,
       cursorColor: context.theme.primaryColor,
       decoration: InputDecoration(
+        suffixIcon: IconButton(
+          icon: Icon(Icons.visibility),
+           onPressed: onPressedIcon),
         isDense: true,
         labelText: label,
         labelStyle: const TextStyle(color: Colors.black),

@@ -34,6 +34,7 @@ class LoginController extends GetxController with LoaderMixin, MessagesMixin {
     ApiResponse<UserModel> response  = await _loginRepository!.login(email, password);
   
     if(response.ok!) {
+      print('okk');
       final storage = GetStorage();
       storage.write(Constants.USER_ACCESS_TOKEN, response.result!.accessToken);
     } else {  
