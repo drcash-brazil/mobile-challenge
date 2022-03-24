@@ -12,10 +12,11 @@ class ClinicModel {
 
   ClinicModel.fromJson(Map<String,dynamic> json) {
     id = json['id'];
-    tradingName = json['trandingName'];
-    city = json['city'];
+    tradingName = json['tradingName'];
+    city = json['city']; 
     state = json['state'];
     clinicTypeId = json['clicnicTypeId'];
+    clinicType = json['clinicType'];
     phoneNumber = json['phoneNumber'];
     isAcative = json['isActive'];
   }
@@ -27,6 +28,7 @@ class ClinicModel {
       'city': city,
       'state': state,
       'clinicTypeId': clinicTypeId,
+      'clinicType': clinicType,
       'phoneNumber': phoneNumber,
       'isActive': isAcative
     };

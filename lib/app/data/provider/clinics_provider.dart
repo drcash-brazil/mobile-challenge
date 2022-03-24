@@ -14,10 +14,9 @@ class ClinicsProvider {
       final response = await _restClient.get('/clinics/public');
 
       if(response.statusCode == 200) {
-        List<ClinicModel> clinics =  response.body<List>.map((e) => ClinicModel.fromJson(e)).toList();
-
+        List<ClinicModel> clinics =  (response.body['data'] as List).map((e) => ClinicModel.fromJson(e)).toList();
         return ApiResponse.ok(result: clinics);
-      }
+      } 
       return ApiResponse.error(msg: 'Não foi possível obter as clinícas.');
     } catch(e) {
         log('erro: $e');

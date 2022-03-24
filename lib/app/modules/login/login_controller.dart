@@ -20,22 +20,27 @@ class LoginController extends GetxController with LoaderMixin, MessagesMixin {
   void onInit() {
     // TODO: implement onInit
     super.onInit();
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
     loaderListener(_isLoading);
     messageListener(_message);
   }
 
   void login({required String email, required String password}) async {
-    //_isLoading.value = true;
+    _isLoading.value = true;
     ApiResponse<UserModel> response  = await _loginRepository!.login(email, password);
   
     if(response.ok!) {
       final storage = GetStorage();
-      storage.write(Constants.USER, response.result);
-    } else { 
+      storage.write(Constants.USER_ACCESS_TOKEN, response.result!.accessToken);
+    } else {  
       _message(
         MessageModel(title: 'Erro', message: response.msg!, type: MessageType.error)
       );
     }
-   // _isLoading.value = false;
+   _isLoading.value = false;
   }
 }

@@ -1,21 +1,21 @@
 class UserModel {
   int? userId;
-  String? token;
+  String? accessToken;
 
   UserModel({
     required this.userId,
-    required this.token
+    required this.accessToken
   });
 
   UserModel.fromJson(Map<String, dynamic> json) {
     userId = json['userId'];
-    token = json['token'];
+    accessToken = json['access_token'];
   }
 
   Map<String, dynamic> toJson() {
     return {
       'userId': userId,
-      'token': token
+      'accessToken': accessToken
     };
   }
 } 

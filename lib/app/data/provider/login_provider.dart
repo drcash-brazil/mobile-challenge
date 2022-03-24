@@ -17,7 +17,7 @@ class LoginProvider {
     try {
       final response = await _restClient.post('/identity/token', body);
 
-      if(response.statusCode == 200) {
+      if(response.statusCode == 200) { 
         UserModel userModel = UserModel.fromJson(response.body);
         return ApiResponse.ok(result: userModel);
       }
