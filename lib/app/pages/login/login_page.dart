@@ -8,12 +8,10 @@ import 'package:mobile_challenge/app/modules/login/login_controller.dart';
 import 'package:validatorless/validatorless.dart';
 
 class LoginPage extends GetView<LoginController> {
-
   final _formKey = GlobalKey<FormState>();
   final _emailEC = TextEditingController();
   final _passwordEC = TextEditingController();
 
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +35,7 @@ class LoginPage extends GetView<LoginController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Login',
+                          'Acesse sua conta',
                           style: context.textTheme.headline6?.copyWith(
                               fontWeight: FontWeight.bold,
                               color: context.theme.primaryColorDark),
@@ -47,7 +45,8 @@ class LoginPage extends GetView<LoginController> {
                         ),
                         ChallengeTextformfield(
                           label: 'E-mail',
-                          controller: _emailEC,
+                          obscureText: false,
+                          controllerr: _emailEC,
                           validator: Validatorless.multiple([
                             Validatorless.required('E-mail obrigatório'),
                             Validatorless.email('E-mail inválido'),
@@ -56,16 +55,20 @@ class LoginPage extends GetView<LoginController> {
                         const SizedBox(
                           height: 30,
                         ),
-                        ChallengeTextformfield(
-                          label: 'Senha',
-                          obscureText: true,
-                          controller: _passwordEC,
-                          validator: Validatorless.multiple([
-                            Validatorless.required('Senha obrigatório'),
-                            Validatorless.min(
-                                6, 'Senha deve conter pelo menos 6 caracteres'),
-                          ]),
-                        ),
+                        Obx(() {
+                        
+                          return ChallengeTextformfield(
+                              label: 'Senha',
+                              isPassword: true,
+                              obscureText: controller.visibilityPassword.value,
+                              controllerr: _passwordEC,
+                              validator: Validatorless.multiple([
+                                Validatorless.required('Senha obrigatório'),
+                                Validatorless.min(6,
+                                    'Senha deve conter pelo menos 6 caracteres'),
+                              ]),
+                            );
+                        }),
                         const SizedBox(
                           height: 50,
                         ),
@@ -91,16 +94,13 @@ class LoginPage extends GetView<LoginController> {
                           children: [
                             const Text('Não possui uma conta?'),
                             TextButton(
-                              onPressed: () {
-                               
-                              },
+                              onPressed: () {},
                               child: const Text(
                                 'Cadastre-se',
-                      
                                 style: ThemeUI.textBold,
                               ),
                             ),
-                          ], 
+                          ],
                         )
                       ],
                     ),

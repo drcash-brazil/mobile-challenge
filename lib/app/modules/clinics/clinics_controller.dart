@@ -10,7 +10,7 @@ class ClinicsController extends GetxController
     with LoaderMixin, MessagesMixin, SingleGetTickerProviderMixin {
   final ClinicsRepository? _clinicsRepository;
   AnimationController? animationController;
-  final Duration duration = const Duration(milliseconds: 1000);
+  final Duration duration = const Duration(milliseconds: 1500);
 
   //observables
   final clinics = <ClinicModel>[].obs;

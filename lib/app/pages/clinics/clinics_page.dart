@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_challenge/app/core/themes/theme_ui.dart';
 import 'package:mobile_challenge/app/core/widgets/challenge_appbar.dart';
 import 'package:mobile_challenge/app/core/widgets/challenge_button.dart';
 import 'package:mobile_challenge/app/core/widgets/slide_animation.dart';
@@ -37,13 +38,13 @@ class ClinicsPage extends GetView<ClinicsController> {
                             children: [
                               ClinicDetailWidget(
                                 name: clinic.tradingName!,
-                                icon: const Icon(Icons.local_hospital),
+                                icon: const Icon(Icons.local_hospital, color: ThemeUI.primaryColor,),
                                 isNameClinic: true,
                               ),
                               const SizedBox(height: 10),
                               ClinicDetailWidget(
                                 name: clinic.phoneNumber!,
-                                icon: const Icon(Icons.phone),
+                                icon: const Icon(Icons.phone, color: ThemeUI.primaryColor,),
                               )
                             ],
                           ),
@@ -72,34 +73,34 @@ class ClinicsPage extends GetView<ClinicsController> {
           children: [
             ClinicDetailWidget(
               name: clinic!.tradingName!,
-              icon: const Icon(Icons.local_hospital),
+              icon: const Icon(Icons.local_hospital, color: ThemeUI.primaryColor),
               isNameClinic: true,
             ),
             const SizedBox(height: 10),
             ClinicDetailWidget(
               name: clinic.phoneNumber!,
-              icon: const Icon(Icons.phone),
+              icon: const Icon(Icons.phone, color: ThemeUI.primaryColor),
             ),
             const SizedBox(
               height: 10,
             ),
             ClinicDetailWidget(
               name: clinic.state!,
-              icon: const Icon(Icons.place),
+              icon: const Icon(Icons.place, color: ThemeUI.primaryColor),
             ),
             const SizedBox(
               height: 10,
             ),
             ClinicDetailWidget(
               name: clinic.city!,
-              icon: const Icon(Icons.location_city),
+              icon: const Icon(Icons.location_city, color: ThemeUI.primaryColor),
             ),
             const SizedBox(
               height: 10,
             ),
             ClinicDetailWidget(
               name: clinic.clinicType!,
-              icon: const Icon(Icons.segment),
+              icon: const Icon(Icons.segment, color: ThemeUI.primaryColor),
             ),
             const SizedBox(
               height: 10,

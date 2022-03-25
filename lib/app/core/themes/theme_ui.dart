@@ -16,4 +16,7 @@ class ThemeUI {
   );
 
   static const TextStyle textBold = TextStyle(fontWeight: FontWeight.bold);
+
+  static const Color primaryColor =  Color(0xFF06d8a0);
+
 }

@@ -1,37 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
 import 'package:get/utils.dart';
+import 'package:mobile_challenge/app/core/themes/theme_ui.dart';
+import 'package:mobile_challenge/app/modules/login/login_controller.dart';
 
-class ChallengeTextformfield extends StatelessWidget {
+class ChallengeTextformfield extends GetView<LoginController> {
   final String label;
-  final TextEditingController? controller;
-  final bool obscureText;
+  final TextEditingController? controllerr;
+  final bool? obscureText;
   final FormFieldValidator<String>? validator;
   final ValueChanged<String>? onChange;
-  final VoidCallback? onPressedIcon;
+  final bool? isPassword;
 
   const ChallengeTextformfield(
       {Key? key,
       required this.label,
-      this.controller,
+      this.controllerr,
       this.validator,
       this.onChange,
-      this.obscureText = false,
-      this.onPressedIcon
+      this.obscureText,
+      this.isPassword
       })
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller,
-      obscureText: obscureText,
+      controller: controllerr,
+      obscureText: isPassword == null ? false :  controller.visibilityPassword.value,
       validator: validator,
       onChanged: onChange,
       cursorColor: context.theme.primaryColor,
       decoration: InputDecoration(
-        suffixIcon: IconButton(
-          icon: Icon(Icons.visibility),
-           onPressed: onPressedIcon),
+        suffixIcon: isPassword != null
+            ? IconButton(
+                icon: Icon(
+                  controller.visibilityPassword.value == true
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: ThemeUI.primaryColor,
+                ),
+                onPressed: () {
+                  controller.visibilityPassword.value =
+                      !controller.visibilityPassword.value;
+                },
+              )
+            : null,
         isDense: true,
         labelText: label,
         labelStyle: const TextStyle(color: Colors.black),

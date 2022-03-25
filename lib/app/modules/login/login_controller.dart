@@ -13,6 +13,7 @@ class LoginController extends GetxController with LoaderMixin, MessagesMixin {
   //observables
   final _isLoading = false.obs; 
   final _message = Rxn<MessageModel>();
+  final visibilityPassword = true.obs;
 
   LoginController({required LoginRepository loginRepository}) : _loginRepository = loginRepository;
 
@@ -20,6 +21,11 @@ class LoginController extends GetxController with LoaderMixin, MessagesMixin {
   void onInit() {
     // TODO: implement onInit
     super.onInit();
+  }
+
+  void toggle() {
+    visibilityPassword.value = visibilityPassword.value;
+    update();
   }
 
   @override
@@ -34,14 +40,14 @@ class LoginController extends GetxController with LoaderMixin, MessagesMixin {
     ApiResponse<UserModel> response  = await _loginRepository!.login(email, password);
   
     if(response.ok!) {
-      print('okk');
       final storage = GetStorage();
       storage.write(Constants.USER_ACCESS_TOKEN, response.result!.accessToken);
     } else {  
+      _isLoading.value = false;
       _message(
         MessageModel(title: 'Erro', message: response.msg!, type: MessageType.error)
       );
     }
-   _isLoading.value = false;
+    _isLoading.value = false;
   }
 }
