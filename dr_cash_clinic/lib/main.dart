@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'pages/auth/login.dart';
+import 'package:get/get.dart';
+import 'package:dr_cash_clinic/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,13 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'DrCashClinic',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Login(),
+      getPages: Routes.pages,
+      initialRoute: '/',
     );
   }
 }
