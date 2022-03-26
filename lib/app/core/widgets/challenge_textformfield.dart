@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/state_manager.dart';
 import 'package:get/utils.dart';
 import 'package:mobile_challenge/app/core/themes/theme_ui.dart';
@@ -11,6 +12,9 @@ class ChallengeTextformfield extends GetView<LoginController> {
   final FormFieldValidator<String>? validator;
   final ValueChanged<String>? onChange;
   final bool? isPassword;
+  final FocusNode? nextFocus;
+  final TextInputType? keyboardType;
+  final TextInputAction? textInputAction;
 
   const ChallengeTextformfield(
       {Key? key,
@@ -19,7 +23,10 @@ class ChallengeTextformfield extends GetView<LoginController> {
       this.validator,
       this.onChange,
       this.obscureText,
-      this.isPassword
+      this.isPassword,
+      this.nextFocus,
+      this.keyboardType,
+      this.textInputAction
       })
       : super(key: key);
 
@@ -31,6 +38,9 @@ class ChallengeTextformfield extends GetView<LoginController> {
       validator: validator,
       onChanged: onChange,
       cursorColor: context.theme.primaryColor,
+      textInputAction: textInputAction,
+      keyboardType: keyboardType, 
+      focusNode: nextFocus,
       decoration: InputDecoration(
         suffixIcon: isPassword != null
             ? IconButton(

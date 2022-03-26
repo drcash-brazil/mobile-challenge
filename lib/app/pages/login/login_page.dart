@@ -11,6 +11,8 @@ class LoginPage extends GetView<LoginController> {
   final _formKey = GlobalKey<FormState>();
   final _emailEC = TextEditingController();
   final _passwordEC = TextEditingController();
+  FocusNode _emailFocusNode = FocusNode();
+  FocusNode _passwordFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +49,9 @@ class LoginPage extends GetView<LoginController> {
                           label: 'E-mail',
                           obscureText: false,
                           controllerr: _emailEC,
+                          keyboardType: TextInputType.emailAddress,
+                          textInputAction: TextInputAction.next,
+                          nextFocus: _emailFocusNode,
                           validator: Validatorless.multiple([
                             Validatorless.required('E-mail obrigatório'),
                             Validatorless.email('E-mail inválido'),
@@ -56,18 +61,19 @@ class LoginPage extends GetView<LoginController> {
                           height: 30,
                         ),
                         Obx(() {
-                        
                           return ChallengeTextformfield(
-                              label: 'Senha',
-                              isPassword: true,
-                              obscureText: controller.visibilityPassword.value,
-                              controllerr: _passwordEC,
-                              validator: Validatorless.multiple([
-                                Validatorless.required('Senha obrigatório'),
-                                Validatorless.min(6,
-                                    'Senha deve conter pelo menos 6 caracteres'),
-                              ]),
-                            );
+                            label: 'Senha',
+                            isPassword: true,
+                            obscureText: controller.visibilityPassword.value,
+                            controllerr: _passwordEC,
+                            textInputAction: TextInputAction.next,
+                            nextFocus: _passwordFocusNode,
+                            validator: Validatorless.multiple([
+                              Validatorless.required('Senha obrigatório'),
+                              Validatorless.min(6,
+                                  'Senha deve conter pelo menos 6 caracteres'),
+                            ]),
+                          );
                         }),
                         const SizedBox(
                           height: 50,
@@ -76,16 +82,7 @@ class LoginPage extends GetView<LoginController> {
                           child: ChallengeButton(
                             width: double.infinity,
                             label: 'ENTRAR',
-                            onPressed: () {
-                              final formValid =
-                                  _formKey.currentState?.validate() ?? false;
-                              if (formValid) {
-                                controller.login(
-                                  email: _emailEC.text,
-                                  password: _passwordEC.text,
-                                );
-                              }
-                            },
+                            onPressed: login, 
                           ),
                         ),
                         const Spacer(),
@@ -112,5 +109,15 @@ class LoginPage extends GetView<LoginController> {
         },
       ),
     );
+  }
+
+  login() {
+    final formValid = _formKey.currentState?.validate() ?? false;
+    if (formValid) {
+      controller.login(
+        email: _emailEC.text,
+        password: _passwordEC.text,
+      );
+    }
   }
 }
