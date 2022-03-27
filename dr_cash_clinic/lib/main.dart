@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       title: 'DrCashClinic',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        useMaterial3: true,
+        colorSchemeSeed: Color.fromRGBO(6, 203, 171, 1),
       ),
       getPages: Routes.pages,
       initialRoute: '/splash',

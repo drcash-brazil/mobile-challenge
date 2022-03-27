@@ -19,6 +19,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(bottom: 30),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
@@ -43,8 +44,6 @@ class _SplashState extends State<Splash> {
           Align(
             alignment: FractionalOffset.bottomCenter,
             child: SizedBox(
-              width: 128,
-              height: 64,
               child: Image.asset("assets/logo.png"),
             ),
           ),
