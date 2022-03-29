@@ -30,11 +30,16 @@ class Api {
   }
 
   Future<bool> validateToken() async {
-    DateTime expiresIn = DateTime.fromMillisecondsSinceEpoch(storage.getInt("expires_in")! * 1000);
-    if(expiresIn.isAfter(DateTime.now())) {
-      return true;
+    if(storage.containsKey("expires_in")) {
+      DateTime expiresIn = DateTime.fromMillisecondsSinceEpoch(storage.getInt("expires_in")! * 1000);
+      if(expiresIn.isAfter(DateTime.now())) {
+        return true;
+      } else {
+        logout();
+        return false;
+      }
     } else {
-      logout();
+      Get.toNamed('/');
       return false;
     }
   }

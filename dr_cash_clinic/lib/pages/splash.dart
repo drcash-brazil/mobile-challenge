@@ -20,7 +20,7 @@ class _SplashState extends State<Splash> {
       Api(storage: storage).validateToken().then((value) {
           if(value) {
             Get.toNamed('/home');
-          }
+          };
       });
     });
   }
