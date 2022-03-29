@@ -1,3 +1,4 @@
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -13,7 +14,15 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3)).then((value) => Get.toNamed('/'));
+    Future.delayed(Duration(seconds: 3)).then((value) async {
+      SharedPreferences storage = await SharedPreferences.getInstance();
+
+      if(storage.getString("access_token") != null) {
+        Get.toNamed('/');
+      } else {
+        Get.toNamed('/');
+      }
+    });
   }
 
   @override
