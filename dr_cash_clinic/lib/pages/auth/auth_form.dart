@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import '../../api/api.dart';
+import 'package:get/get.dart';
 
 class AuthForm extends StatefulWidget {
   const AuthForm({Key? key}) : super(key: key);
@@ -125,6 +126,12 @@ class _AuthFormState extends State<AuthForm> {
                             text: value ? "Login realizado com sucesso !" : "Email/Senha estão incorretos.",
                             color: value ? Colors.green[300] : Colors.red[300],
                           );
+                        }).whenComplete(() {
+                          Future.delayed(const Duration(seconds: 3), () {
+                            if(value) {
+                              Get.toNamed('/home');
+                            }
+                          });
                         });
                       });
                     }

@@ -1,16 +1,18 @@
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:get/get.dart';
 
 class User {
   String? accessToken;
   String? refreshToken;
   String? tokenType;
   int? expiresIn;
+  var storage;
 
   User({
     this.accessToken, 
     this.refreshToken, 
     this.tokenType, 
-    this.expiresIn
+    this.expiresIn,
+    this.storage
   });
 
   setUser(json) {
@@ -22,9 +24,14 @@ class User {
     _setStorage();
   }
 
-  _setStorage() async {
-    SharedPreferences storage = await SharedPreferences.getInstance();
+  unsetUser() {
+    storage.remove("access_token");
+    storage.remove("refresh_token");
+    storage.remove("token_type");
+    storage.remove("expires_in");
+  }
 
+  _setStorage() async {
     storage.setString("access_token", accessToken!);
     storage.setString("refresh_token", refreshToken!);
     storage.setString("token_type", tokenType!);

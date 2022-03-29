@@ -2,6 +2,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
+import '../api/api.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -16,12 +17,11 @@ class _SplashState extends State<Splash> {
     super.initState();
     Future.delayed(Duration(seconds: 3)).then((value) async {
       SharedPreferences storage = await SharedPreferences.getInstance();
-
-      if(storage.getString("access_token") != null) {
-        Get.toNamed('/');
-      } else {
-        Get.toNamed('/');
-      }
+      Api(storage: storage).validateToken().then((value) {
+          if(value) {
+            Get.toNamed('/home');
+          }
+      });
     });
   }
 
