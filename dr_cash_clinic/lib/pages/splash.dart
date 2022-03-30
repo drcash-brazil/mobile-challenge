@@ -1,8 +1,8 @@
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:dr_cash_clinic/models/token.dart';
+import 'package:dr_cash_clinic/api/api.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import '../api/api.dart';
+import 'package:get/get.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -15,13 +15,9 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
+
     Future.delayed(Duration(seconds: 3)).then((value) async {
-      SharedPreferences storage = await SharedPreferences.getInstance();
-      Api(storage: storage).validateToken().then((value) {
-          if(value) {
-            Get.toNamed('/home');
-          };
-      });
+      Token.expiresIn != null ? Api().validateToken() : Get.toNamed('/');
     });
   }
 

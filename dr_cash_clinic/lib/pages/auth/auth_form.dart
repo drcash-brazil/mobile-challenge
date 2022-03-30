@@ -1,7 +1,7 @@
+import 'package:dr_cash_clinic/storage/storage.dart';
+import 'package:dr_cash_clinic/api/api.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import '../../api/api.dart';
-import 'package:get/get.dart';
 
 class AuthForm extends StatefulWidget {
   const AuthForm({Key? key}) : super(key: key);
@@ -12,10 +12,24 @@ class AuthForm extends StatefulWidget {
 
 class _AuthFormState extends State<AuthForm> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+  var _emailController = TextEditingController();
+  var _passwordController = TextEditingController();
   bool isLoading = false;
   bool isObscure = true;
+  bool isRemember = Storage.getRemember();
+
+  @override
+  void initState() {
+    super.initState();
+    loadCredentialsRemember();
+  }
+  
+  loadCredentialsRemember() {
+    if(isRemember) {
+      _emailController.text = Storage.getEmailRemember();
+      _passwordController.text = Storage.getPasswordRemember();
+    }
+  }
 
   loginSnackBar({asset, text, color}) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -60,7 +74,7 @@ class _AuthFormState extends State<AuthForm> {
       ),
       child: Container(
         padding: EdgeInsets.all(15),
-        height: 300,
+        height: 320,
         width: size.width * 0.80,
         child: Form(
           key: _formKey,
@@ -93,7 +107,22 @@ class _AuthFormState extends State<AuthForm> {
                   return password!.isEmpty ? "Preencha a Senha." : null;
                 },
               ),
-              SizedBox(height: 50),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text("Lembrar senha"),
+                  Checkbox(
+                    value: isRemember, 
+                    onChanged: (status) {
+                      setState(() {
+                        isRemember = status!;
+                      });
+                      Storage.saveRemember(status);
+                    } 
+                  ),
+                ],
+              ),
+              SizedBox(height: 10),
               SizedBox(
                 width: 200,
                 height: 50,
@@ -103,7 +132,7 @@ class _AuthFormState extends State<AuthForm> {
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  onPressed: () async {
+                  onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       FocusScopeNode currentFocus = FocusScope.of(context);
 
@@ -114,9 +143,8 @@ class _AuthFormState extends State<AuthForm> {
                       if (!currentFocus.hasPrimaryFocus) {
                         currentFocus.unfocus();
                       }
-
-                      await Api().Login(_emailController.text, _passwordController.text).then((value) {
-                        Future.delayed(const Duration(seconds: 1), () {
+                      
+                      Api().getToken(_emailController.text, _passwordController.text).then((value) {
                           setState(() {
                             isLoading = false;
                           });
@@ -126,13 +154,6 @@ class _AuthFormState extends State<AuthForm> {
                             text: value ? "Login realizado com sucesso !" : "Email/Senha estão incorretos.",
                             color: value ? Colors.green[300] : Colors.red[300],
                           );
-                        }).whenComplete(() {
-                          Future.delayed(const Duration(seconds: 3), () {
-                            if(value) {
-                              Get.toNamed('/home');
-                            }
-                          });
-                        });
                       });
                     }
                   },

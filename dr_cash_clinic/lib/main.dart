@@ -1,6 +1,8 @@
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:dr_cash_clinic/storage/storage.dart';
+import 'package:dr_cash_clinic/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:dr_cash_clinic/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,8 +11,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  loadStorage() async {
+    SharedPreferences storage = await SharedPreferences.getInstance();
+    Storage.setInstance(storage);
+  }
+  
   @override
   Widget build(BuildContext context) {
+
+    loadStorage();
     return GetMaterialApp(
       title: 'DrCashClinic',
       debugShowCheckedModeBanner: false,

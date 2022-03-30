@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:dr_cash_clinic/pages/auth/auth_form.dart';
+import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class Login extends StatelessWidget {
@@ -19,23 +19,26 @@ class Login extends StatelessWidget {
           ],
         ),
       ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: SingleChildScrollView(
-          padding: EdgeInsets.only(top: 100),
-          reverse: true,
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                SizedBox(
-                  child: Image.asset("assets/logo.png"),
-                ),
-                SizedBox(
-                  width: 300,
-                  child: Lottie.asset("assets/doctor.json"),
-                ),
-                AuthForm(),
-              ],
+      child: WillPopScope(
+        onWillPop: () async => false,
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: SingleChildScrollView(
+            padding: EdgeInsets.only(top: 100),
+            reverse: true,
+            child: Center(
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    child: Image.asset("assets/logo.png"),
+                  ),
+                  SizedBox(
+                    width: 300,
+                    child: Lottie.asset("assets/doctor.json"),
+                  ),
+                  AuthForm(),
+                ],
+              ),
             ),
           ),
         ),
