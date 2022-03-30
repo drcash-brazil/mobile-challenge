@@ -1,6 +1,7 @@
 import 'package:dr_cash_clinic/models/user.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -38,7 +39,7 @@ class _HomeState extends State<Home> {
             actions: <Widget>[
                ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.grey[600]),
-                child: Text("Sair"),
+                child: Text("Sim"),
                 onPressed: () {
                   User.logout();
                 },
@@ -100,6 +101,13 @@ class _HomeState extends State<Home> {
           ),
         ),
         body: Center(child: Text("Home")),
+        floatingActionButton: FloatingActionButton(onPressed: () {
+            String url ="https://wa.me/+5567999241871/";
+            launch(url);
+        },
+        backgroundColor: Colors.green[700],
+        child: Icon(Icons.whatsapp),
+        ),
       ),
     );
   }
