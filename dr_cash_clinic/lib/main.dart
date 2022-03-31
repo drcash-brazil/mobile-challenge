@@ -3,6 +3,7 @@ import 'package:dr_cash_clinic/storage/storage.dart';
 import 'package:dr_cash_clinic/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_localizations/flutter_localizations.dart' ; 
 
 void main() {
   runApp(const MyApp());
@@ -29,6 +30,11 @@ class MyApp extends StatelessWidget {
       ),
       getPages: Routes.pages,
       initialRoute: '/splash',
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
+      ],
+      supportedLocales: [const Locale('pt', 'BR')],
     );
   }
 }
