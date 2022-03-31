@@ -1,6 +1,6 @@
+import 'package:dr_cash_clinic/models/clinic.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
-import '../../models/clinic.dart';
 
 class HomeListItem extends StatefulWidget {
   final Clinic clinic;
@@ -11,8 +11,66 @@ class HomeListItem extends StatefulWidget {
 }
 
 class _HomeListItemState extends State<HomeListItem> {
+  void itemModal() {
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: SizedBox(
+                        width: 50,
+                        height: 50,
+                        child: SvgPicture.asset(getSvg(),
+                            color: Theme.of(context).colorScheme.primary),
+                      ),
+                    ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.5,
+                      child: Text(
+                        widget.clinic.tradingName!,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Text("${widget.clinic.city} - ${widget.clinic.state!}"),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Text("Contato: ${widget.clinic.phoneNumber!}"),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Text(widget.clinic.clinicType!),
+                ),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            ElevatedButton(
+              child: Text("Fechar"),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
 
-   getSvg() {
+  getSvg() {
     switch (widget.clinic.clinicTypeId) {
       case 2:
         return "assets/svg/dentistry.svg";
@@ -34,11 +92,11 @@ class _HomeListItemState extends State<HomeListItem> {
         return "assets/svg/exams.svg";
       case 11:
         return "assets/svg/drugstore.svg";
-      default: 
+      default:
         return "assets/svg/clinic.svg";
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -63,22 +121,21 @@ class _HomeListItemState extends State<HomeListItem> {
             ),
             leading: SizedBox(
               width: 50,
-              child: SvgPicture.asset(getSvg(), color: Theme.of(context).colorScheme.primary),
+              child: SvgPicture.asset(getSvg(),
+                  color: Theme.of(context).colorScheme.primary),
             ),
             title: Text(widget.clinic.tradingName!),
             subtitle: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(widget.clinic.city!),
+                Text("${widget.clinic.city} - ${widget.clinic.state!}"),
                 SizedBox(height: 15),
                 Text(widget.clinic.clinicType!),
               ],
             ),
-
-            trailing: Icon(Icons.open_in_full),
             onTap: () {
-              print("click");
+              itemModal();
             },
           ),
         ],
