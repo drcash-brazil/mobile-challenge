@@ -1,9 +1,11 @@
+import 'package:dr_cash_clinic/models/clinic.dart';
 import 'package:dr_cash_clinic/storage/storage.dart';
 import 'package:dr_cash_clinic/models/token.dart';
 import 'package:dr_cash_clinic/models/user.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'config.dart';
+import 'dart:async';
 
 class Api {
 
@@ -37,6 +39,20 @@ class Api {
       User.login();
     } else {
       User.logout();
+    }
+  }
+
+  Future<List<Clinic>?> getClinics(select) async {
+    var url = Uri.parse(config.apiUrl + config.urlClinics).replace(queryParameters: {
+      'state': select == "ALL" ? "" : select,
+    });
+    var response = await http.get(url, headers: _getHeaders());
+
+    if(response.statusCode == 200) {
+      var data = json.decode(response.body)['data'] as List;  
+      return data.map((item) => Clinic.fromJson(item)).toList();
+    } else {
+      return null;
     }
   }
 

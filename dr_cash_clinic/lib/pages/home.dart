@@ -1,7 +1,10 @@
+import 'package:dr_cash_clinic/models/address_state.dart';
+import 'package:dr_cash_clinic/settings/settings.dart';
 import 'package:dr_cash_clinic/models/user.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:dr_cash_clinic/api/api.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,6 +14,18 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  String select = "ALL";
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  List<AddressState> getAddressStates() {
+    var json = Settings.address["states"] as List;
+    return json.map((item) => AddressState.fromJson(item)).toList();
+  }
+
   @override
   Widget build(BuildContext context) {
     void exit() {
@@ -37,7 +52,7 @@ class _HomeState extends State<Home> {
               ),
             ),
             actions: <Widget>[
-               ElevatedButton(
+              ElevatedButton(
                 style: ElevatedButton.styleFrom(primary: Colors.grey[600]),
                 child: Text("Sim"),
                 onPressed: () {
@@ -76,7 +91,8 @@ class _HomeState extends State<Home> {
                       Center(
                         child: SizedBox(
                           width: 100,
-                          child: Lottie.asset("assets/user.json", repeat: false),
+                          child:
+                              Lottie.asset("assets/user.json", repeat: false),
                         ),
                       ),
                       Text(
@@ -100,13 +116,75 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
-        body: Center(child: Text("Home")),
-        floatingActionButton: FloatingActionButton(onPressed: () {
-            String url ="https://wa.me/+5567999241871/";
+        body: Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  padding: EdgeInsets.only(top: 10, left: 20, right: 20),
+                  width: MediaQuery.of(context).size.width,
+                  child: DropdownButton(
+                    value: select == "" ? null : select,
+                    hint: Text("Estado"),
+                    itemHeight: null,
+                    isExpanded: true,
+                    onChanged: (value) {
+                      setState(() {
+                        select = value.toString();
+                      });
+                    },
+                    items: getAddressStates().map((item) {
+                      return DropdownMenuItem(
+                          value: item.value, child: Text(item.name!));
+                    }).toList(),
+                  ),
+                ),
+              ],
+            ),
+            Container(
+              height: MediaQuery.of(context).size.height * 0.8,
+              child: FutureBuilder(
+                future: Api().getClinics(this.select),
+                builder: (context, AsyncSnapshot snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: Lottie.asset("assets/search.json"));
+                  } else {
+                    return ListView.builder(
+                      itemCount: snapshot.data.length,
+                      itemBuilder: (context, index) => Card(
+                        elevation: 3,
+                        margin: EdgeInsets.all(5),
+                        child: ListTile(
+                          leading: CircleAvatar(
+                            child: Icon(Icons.business_outlined,
+                                color: Colors.white),
+                            backgroundColor:
+                                Theme.of(context).colorScheme.primary,
+                          ),
+                          title: Text(snapshot.data[index].tradingName!),
+                          subtitle: Text(snapshot.data[index].city!),
+                          trailing: Icon(Icons.open_in_full),
+                        ),
+                      ),
+                    );
+                  }
+                },
+              ),
+            ),
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            String url = "https://wa.me/+5567999241871/";
             launch(url);
-        },
-        backgroundColor: Colors.green[700],
-        child: Icon(Icons.whatsapp),
+          },
+          backgroundColor: Colors.green[700],
+          child: Icon(
+            Icons.whatsapp,
+            size: 40,
+          ),
         ),
       ),
     );
