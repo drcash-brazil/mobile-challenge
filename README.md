@@ -50,15 +50,10 @@ Rota de Autenticação: https://apihml.drcash.com.br/api/v1/identity/token
 Retorno de Autenticação
 
 {
-  "userId": "string",
-  "token": "string",
-  "refreshToken": "string",
-  "expiresIn": 0,
-  "success": true,
-  "errors": [
-    "string"
-  ],
-  "errorStatus": 0
+  "access_token": "string",
+  "refresh_token": "string",
+  "token_type": "string",
+  "expires_in": 0
 }
 ```
 
