@@ -1,4 +1,6 @@
+import 'package:dr_cash_clinic/pages/widgets/list_item.dart';
 import 'package:dr_cash_clinic/models/address_state.dart';
+import 'package:dr_cash_clinic/models/clinic_type.dart';
 import 'package:dr_cash_clinic/settings/settings.dart';
 import 'package:dr_cash_clinic/models/user.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -14,7 +16,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String select = "ALL";
+  String addressState = "ALL";
+  int clinicType = 1;
 
   @override
   void initState() {
@@ -24,6 +27,11 @@ class _HomeState extends State<Home> {
   List<AddressState> getAddressStates() {
     var json = Settings.address["states"] as List;
     return json.map((item) => AddressState.fromJson(item)).toList();
+  }
+
+  List<ClinicType> getClinicTypes() {
+    var json = Settings.address["clinicType"] as List;
+    return json.map((item) => ClinicType.fromJson(item)).toList();
   }
 
   @override
@@ -60,7 +68,7 @@ class _HomeState extends State<Home> {
                 },
               ),
               ElevatedButton(
-                child: Text("Voltar"),
+                child: Text("Não"),
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -118,55 +126,76 @@ class _HomeState extends State<Home> {
         ),
         body: Column(
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                  padding: EdgeInsets.only(top: 10, left: 20, right: 20),
-                  width: MediaQuery.of(context).size.width,
-                  child: DropdownButton(
-                    value: select == "" ? null : select,
-                    hint: Text("Estado"),
-                    itemHeight: null,
-                    isExpanded: true,
-                    onChanged: (value) {
-                      setState(() {
-                        select = value.toString();
-                      });
-                    },
-                    items: getAddressStates().map((item) {
-                      return DropdownMenuItem(
-                          value: item.value, child: Text(item.name!));
-                    }).toList(),
-                  ),
-                ),
-              ],
+            Container(
+              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
+              width: MediaQuery.of(context).size.width,
+              child: DropdownButton(
+                dropdownColor: Colors.grey[300],
+                value: addressState,
+                hint: Text("Estado - Todos"),
+                itemHeight: null,
+                elevation: 5,
+                isExpanded: true,
+                onChanged: (value) {
+                  setState(() {
+                    addressState = value.toString();
+                  });
+                },
+                items: getAddressStates().map((item) {
+                  return DropdownMenuItem(
+                      value: item.value, child: Text(item.name!));
+                }).toList(),
+              ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.8,
+              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
+              width: MediaQuery.of(context).size.width,
+              child: DropdownButton<int>(
+                dropdownColor: Colors.grey[300],
+                value: clinicType,
+                hint: Text("Segmento - Todos"),
+                elevation: 5,
+                itemHeight: null,
+                isExpanded: true,
+                onChanged: (value) {
+                  setState(() {
+                    clinicType = value!;
+                  });
+                },
+                items: getClinicTypes().map((item) {
+                  return DropdownMenuItem(
+                      value: item.id, child: Text(item.name!));
+                }).toList(),
+              ),
+            ),
+            Expanded(
               child: FutureBuilder(
-                future: Api().getClinics(this.select),
+                future: Api().getClinics(this.addressState, this.clinicType),
                 builder: (context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Center(child: Lottie.asset("assets/search.json"));
+                  } else if (snapshot.data == null) {
+                    return Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: 150,
+                            width: 150,
+                            child: Lottie.asset("assets/alert.json",
+                                repeat: false),
+                          ),
+                          Text("Nenhuma clinica encontrada"),
+                        ],
+                      ),
+                    );
                   } else {
                     return ListView.builder(
                       itemCount: snapshot.data.length,
                       itemBuilder: (context, index) => Card(
-                        elevation: 3,
+                        elevation: 1,
                         margin: EdgeInsets.all(5),
-                        child: ListTile(
-                          leading: CircleAvatar(
-                            child: Icon(Icons.business_outlined,
-                                color: Colors.white),
-                            backgroundColor:
-                                Theme.of(context).colorScheme.primary,
-                          ),
-                          title: Text(snapshot.data[index].tradingName!),
-                          subtitle: Text(snapshot.data[index].city!),
-                          trailing: Icon(Icons.open_in_full),
-                        ),
+                        child: HomeListItem(snapshot.data[index]),
                       ),
                     );
                   }
@@ -180,7 +209,7 @@ class _HomeState extends State<Home> {
             String url = "https://wa.me/+5567999241871/";
             launch(url);
           },
-          backgroundColor: Colors.green[700],
+          backgroundColor: Color(0xffb3ec24f),
           child: Icon(
             Icons.whatsapp,
             size: 40,

@@ -2,7 +2,7 @@ class Settings {
 
   static var address = {
     "states": [
-     {"value": "ALL", "name": "Todos"},
+     {"value": "ALL", "name": "Estado - Todos"},
      {"value": "AC", "name": "Acre"},
      {"value": "AL", "name": "Alagoas"},
      {"value": "AP", "name": "Amapá"},
@@ -30,6 +30,19 @@ class Settings {
      {"value": "SP", "name": "São Paulo"},
      {"value": "SE", "name": "Sergipe"},
      {"value": "TO", "name": "Tocantins"}
-    ]
+    ],
+    "clinicType": [
+      {"id": 1, "name": "Segmento - Todos"},
+      {"id": 2, "name": "Odontologia"},
+      {"id": 3, "name": "Cirurgia plástica"},
+      {"id": 4, "name": "Estética geral"},
+      {"id": 5, "name": "Ginecologista"},
+      {"id": 6, "name": "Oftalmologia"},
+      {"id": 7, "name": "Clinica geral"},
+      {"id": 8, "name": "Hospital"},
+      {"id": 9, "name": "Ortopedia"},
+      {"id": 10, "name": "Exames & Diagnósticos"},
+      {"id": 11, "name": "Farmácia"},
+    ],
   };
 }
