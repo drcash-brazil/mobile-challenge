@@ -42,10 +42,11 @@ class Api {
     }
   }
 
-  Future<List<Clinic>?> getClinics(addressState, clinicType) async {
+  Future<List<Clinic>?> getClinics(addressState, clinicType, text) async {
     var url = Uri.parse(config.apiUrl + config.urlClinics).replace(queryParameters: {
       'state': addressState == "ALL" ? "" : addressState,
       'clinicTypeId': clinicType == 1 ? "" : clinicType.toString(),
+      'tradingName': text,
     });
     var response = await http.get(url, headers: _getHeaders());
 

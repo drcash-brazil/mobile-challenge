@@ -135,6 +135,7 @@ class _HomeListItemState extends State<HomeListItem> {
               ],
             ),
             onTap: () {
+              FocusScope.of(context).unfocus();
               itemModal();
             },
           ),

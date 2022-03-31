@@ -3,6 +3,7 @@ import 'package:dr_cash_clinic/models/address_state.dart';
 import 'package:dr_cash_clinic/models/clinic_type.dart';
 import 'package:dr_cash_clinic/settings/settings.dart';
 import 'package:dr_cash_clinic/models/user.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:dr_cash_clinic/api/api.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +17,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  var _search = TextEditingController();
   String addressState = "ALL";
   int clinicType = 1;
+  Future clinics = Api().getClinics("", 1, "");
 
   @override
   void initState() {
@@ -130,7 +133,6 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.only(top: 10, left: 10, right: 10),
               width: MediaQuery.of(context).size.width,
               child: DropdownButton(
-                dropdownColor: Colors.grey[300],
                 value: addressState,
                 hint: Text("Estado - Todos"),
                 itemHeight: null,
@@ -151,7 +153,6 @@ class _HomeState extends State<Home> {
               padding: EdgeInsets.only(top: 10, left: 10, right: 10),
               width: MediaQuery.of(context).size.width,
               child: DropdownButton<int>(
-                dropdownColor: Colors.grey[300],
                 value: clinicType,
                 hint: Text("Segmento - Todos"),
                 elevation: 5,
@@ -168,9 +169,43 @@ class _HomeState extends State<Home> {
                 }).toList(),
               ),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    child: TextFormField(
+                      controller: _search,
+                      decoration:
+                          InputDecoration(labelText: "Qual é o nome da clinica?"),
+                      keyboardType: TextInputType.text,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 5, left: 15),
+                  child: SizedBox(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          clinics = Api()
+                        .getClinics(addressState, clinicType, _search.text);
+                        });
+                      },
+                      child: SvgPicture.asset("assets/svg/search.svg",
+                        width: 20, height: 20),
+                    ),
+                  ),
+                ),
+              ],
+            ),
             Expanded(
               child: FutureBuilder(
-                future: Api().getClinics(this.addressState, this.clinicType),
+                future: clinics,
                 builder: (context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Center(child: Lottie.asset("assets/search.json"));
