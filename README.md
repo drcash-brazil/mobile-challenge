@@ -60,6 +60,7 @@ Retorno de Autenticação
 ## Desenvolvimento da Home e Listagem de Clínicas
 
 - 1. Após a realização do Login, o usuário deve ser redirecionado para a tela de Home, onde será possível navegar em listagem de clínicas, no qual o usuário poderá clicar em um dos cards das clínicas e visualizar seus detalhes.
+  * A lista de clínicas deve ser em loading infinito.
 - 2. O componente que exibirá os detalhes da clínica será um modal.
 
 Rota da Listagem de Clínicas: https://apihml.drcash.com.br/api/v1/clinics/public
@@ -110,10 +111,11 @@ Retorno da Lista de Clínicas
 
 ---
 
-## Bonus:
+## Bônus:
 - Tela de Splash;
 - Transições e animações;
-- Tratamento de erros e apresentação dos fluxos de exceção: Generic Error's e Loading's
+- Poder adicionar as clínicas como favoritas;
+- Tratamento de erros e apresentação dos fluxos de exceção: Generic Error's e Loading's.
 
 ---
 
