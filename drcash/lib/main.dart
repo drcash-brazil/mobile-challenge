@@ -1,6 +1,9 @@
 import 'package:drcash/core/routes.dart';
 import 'package:drcash/ui/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'blocs/bloc_providers.dart';
 
 void main() {
   runApp(const App());
@@ -19,8 +22,11 @@ class App extends StatelessWidget {
         primarySwatch: AppTheme.PRIMARY_COLOR,
         canvasColor: Colors.transparent,
       ),
-      initialRoute: Routes.home,
       routes: Routes.routes,
+      home: MultiBlocProvider(
+        providers: BlockProviders.providers,
+        child: Builder(builder: Routes.routes[Routes.home]!),
+      ),
     );
   }
 }
