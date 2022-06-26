@@ -27,15 +27,10 @@ class _RoundedBottomSheetState extends State<RoundedBottomSheet> {
         borderRadius: BorderRadius.vertical(top: borderRadius),
       ),
       builder: (BuildContext _) {
-        return AnimatedContainer(
+        return SizedBox(
           height: widget.height,
           width: double.infinity,
-          duration: const Duration(milliseconds: 200),
           child: Container(
-            // padding: const EdgeInsets.symmetric(
-            //   horizontal: 16.0,
-            //   vertical: 20.0,
-            // ),
             decoration: BoxDecoration(
               gradient: AppTheme.PRIMARY_COLOR_GRADIENT,
               borderRadius: BorderRadius.vertical(top: borderRadius),
@@ -59,13 +54,6 @@ class _RoundedBottomSheetState extends State<RoundedBottomSheet> {
               ],
             ),
           ),
-          // child: Padding(
-          //   padding: const EdgeInsets.symmetric(
-          //     horizontal: 16.0,
-          //     vertical: 20.0,
-          //   ),
-          //   child: widget.content,
-          // ),
         );
       },
     );

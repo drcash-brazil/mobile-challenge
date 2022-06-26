@@ -4,13 +4,22 @@ import 'package:flutter/cupertino.dart';
 @immutable
 abstract class AuthState {
   final Auth? auth;
-  AuthState(this.auth);
+  final dynamic error;
+  AuthState({required this.auth, this.error});
 }
 
 class AuthInitialState extends AuthState {
-  AuthInitialState() : super(null);
+  AuthInitialState() : super(auth: null, error: null);
 }
 
-class AuthLoaded extends AuthState {
-  AuthLoaded(Auth auth) : super(auth);
+class AuthLoadingState extends AuthState {
+  AuthLoadingState() : super(auth: null);
+}
+
+class AuthLoadedState extends AuthState {
+  AuthLoadedState(Auth auth) : super(auth: auth, error: null);
+}
+
+class AuthErrorState extends AuthState {
+  AuthErrorState(dynamic error) : super(auth: null, error: error);
 }

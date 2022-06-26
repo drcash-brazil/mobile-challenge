@@ -32,4 +32,5 @@ class AppTheme {
   static const END_COLOR = Color(0xFF0BA5A8);
 
   static const GREY_COLOR_LIGHT = Color(0xFFF5F5F9);
+  static const GREY_COLOR_LIGHT_2 = Color(0xFFE2EBEC);
 }
