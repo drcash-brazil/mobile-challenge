@@ -1,7 +1,9 @@
 import 'package:drcash/core/routes.dart';
+import 'package:drcash/core/shared_preference_helper.dart';
 import 'package:drcash/ui/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'blocs/bloc_providers.dart';
 
@@ -15,6 +17,8 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final defaultPage = _getDefaultPage();
+
     return MultiBlocProvider(
       providers: BlockProviders.providers,
       child: MaterialApp(
@@ -25,8 +29,21 @@ class App extends StatelessWidget {
           canvasColor: Colors.transparent,
         ),
         routes: Routes.routes,
-        initialRoute: Routes.home,
+        home: FutureBuilder<Widget>(
+            future: defaultPage,
+            builder: (BuildContext context, AsyncSnapshot<Widget> snapshot) {
+              return snapshot.data ?? Container();
+            }),
       ),
     );
+  }
+
+  Future<Widget> _getDefaultPage() async {
+    var helper = SharedPreferenceHelper(await SharedPreferences.getInstance());
+    if (await helper.isLoggedIn) {
+      return Builder(builder: Routes.routes[Routes.home]!);
+    } else {
+      return Builder(builder: Routes.routes[Routes.login]!);
+    }
   }
 }

@@ -23,18 +23,14 @@ class ClinicsCubit extends Cubit<ClinicsState> {
         response!.data = state.response!.data!..addAll(response.data!);
       }
 
-      Timer(Duration(seconds: 3), () {
+      // TODO: Remove time! It was implemented just to simulater a long request
+      Timer(const Duration(seconds: 3), () {
         emit(state.copyWith(
           response: response,
           loading: false,
           error: null,
         ));
       });
-      // emit(state.copyWith(
-      //   response: response,
-      //   loading: false,
-      //   error: null,
-      // ));
     } catch (e) {
       emit(state.copyWith(
         loading: false,

@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
         ),
         IconButton(
           icon: const Icon(Icons.exit_to_app),
-          onPressed: _logout,
+          onPressed: _confirmLogout,
         )
       ],
     );
@@ -120,6 +120,26 @@ class _HomePageState extends State<HomePage> {
       duration: const Duration(milliseconds: 600),
       curve: Curves.fastOutSlowIn,
       child: const ClinicLoading(),
+    );
+  }
+
+  _confirmLogout() {
+    showDialog<String>(
+      context: context,
+      builder: (BuildContext context) => AlertDialog(
+        title: const Text('Sair'),
+        content: const Text('Deseja sair da sessão atual?'),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Não'),
+          ),
+          TextButton(
+            onPressed: _logout,
+            child: const Text('Sim'),
+          ),
+        ],
+      ),
     );
   }
 

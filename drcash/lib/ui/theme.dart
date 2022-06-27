@@ -21,7 +21,6 @@ class AppTheme {
 
   static const PRIMARY_COLOR_DARK = Color(0xFF073B4C);
 
-  // Gradient
   static const PRIMARY_COLOR_GRADIENT = LinearGradient(
     begin: Alignment.topRight,
     end: Alignment.bottomLeft,

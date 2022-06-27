@@ -69,7 +69,6 @@ class _DetailsPageState extends State<DetailsPage> {
                   '${widget.clinic.city} - ${widget.clinic.state}',
                   style: const TextStyle(
                     fontSize: 14,
-                    // fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
                 ),
@@ -80,7 +79,7 @@ class _DetailsPageState extends State<DetailsPage> {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  print('');
+                  // TODO: Develop phone integration
                 },
                 style: ElevatedButton.styleFrom(
                   primary: AppTheme.PRIMARY_COLOR_DARK,
