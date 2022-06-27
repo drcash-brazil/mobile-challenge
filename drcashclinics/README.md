@@ -1,16 +1,35 @@
-# drcashclinics
+# Mobile Challenge
 
-A new Flutter project.
+Mobile Challenge, é um "code challenge" oferecido pela Dr Cash. como step de um processo seletivo de Desenvolvedor Flutter.
 
-## Getting Started
+A aplicação contempla com uma tela de login e listagem de clínicas utilizando a API fornecida.
 
-This project is a starting point for a Flutter application.
+## Stack
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter 3.0.3 (Na versão mais recente disponivel) 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Emulate
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+A aplicação necessita de um ambiente de desenvolvimento apropriado para rodar com flutter.
+
+Também disponibilizado o apk por meio de link no passo extra.
+
+### Passo 1:
+
+Na pasta drcashclinics rodar o comando:
+flutter pub get
+
+### Passo 2:
+Rode o comando:
+flutter run
+
+### Passo Extra:
+Faça o download do apk:
+https://drive.google.com/file/d/1gGhAeIBOx53glBEKnCVC9RMb3tcqK3sK/view?usp=sharing
+
+## Futuro:
+ - Uma API com retorno amplo de informações sobre as clínicas, para o usuário ter mais informações. ex: Endereços, imagens.
+ - Adicionar tela de favoritos para mostrar as clínicas que o usuário favoritou.
+ - Aprimorar UI/UX.
+ - Aprimorar métodos de autenticação para fazer uso do token e do expiresIn.
+ - Adicionar filtros de clínicas por estado, cidade.

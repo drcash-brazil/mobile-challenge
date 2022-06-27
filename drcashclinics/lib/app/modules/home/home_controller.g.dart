@@ -25,70 +25,6 @@ mixin _$HomeController on HomeControllerBase, Store {
     });
   }
 
-  late final _$favoritesListAtom =
-      Atom(name: 'HomeControllerBase.favoritesList', context: context);
-
-  @override
-  List<dynamic> get favoritesList {
-    _$favoritesListAtom.reportRead();
-    return super.favoritesList;
-  }
-
-  @override
-  set favoritesList(List<dynamic> value) {
-    _$favoritesListAtom.reportWrite(value, super.favoritesList, () {
-      super.favoritesList = value;
-    });
-  }
-
-  late final _$obscureValueAtom =
-      Atom(name: 'HomeControllerBase.obscureValue', context: context);
-
-  @override
-  bool get obscureValue {
-    _$obscureValueAtom.reportRead();
-    return super.obscureValue;
-  }
-
-  @override
-  set obscureValue(bool value) {
-    _$obscureValueAtom.reportWrite(value, super.obscureValue, () {
-      super.obscureValue = value;
-    });
-  }
-
-  late final _$emailErrorAtom =
-      Atom(name: 'HomeControllerBase.emailError', context: context);
-
-  @override
-  String get emailError {
-    _$emailErrorAtom.reportRead();
-    return super.emailError;
-  }
-
-  @override
-  set emailError(String value) {
-    _$emailErrorAtom.reportWrite(value, super.emailError, () {
-      super.emailError = value;
-    });
-  }
-
-  late final _$passwordErrorAtom =
-      Atom(name: 'HomeControllerBase.passwordError', context: context);
-
-  @override
-  String get passwordError {
-    _$passwordErrorAtom.reportRead();
-    return super.passwordError;
-  }
-
-  @override
-  set passwordError(String value) {
-    _$passwordErrorAtom.reportWrite(value, super.passwordError, () {
-      super.passwordError = value;
-    });
-  }
-
   late final _$isLoadingAtom =
       Atom(name: 'HomeControllerBase.isLoading', context: context);
 
@@ -196,10 +132,6 @@ mixin _$HomeController on HomeControllerBase, Store {
   String toString() {
     return '''
 homeModelList: ${homeModelList},
-favoritesList: ${favoritesList},
-obscureValue: ${obscureValue},
-emailError: ${emailError},
-passwordError: ${passwordError},
 isLoading: ${isLoading},
 favoriteClinic: ${favoriteClinic},
 obscureIcon: ${obscureIcon}

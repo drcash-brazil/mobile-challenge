@@ -20,18 +20,6 @@ abstract class HomeControllerBase with Store {
   List<HomeModel> homeModelList = [];
 
   @observable
-  List<dynamic> favoritesList = [];
-
-  @observable
-  bool obscureValue = true;
-
-  @observable
-  String emailError = "";
-
-  @observable
-  String passwordError = "";
-
-  @observable
   bool isLoading = true;
 
   @observable
@@ -39,9 +27,6 @@ abstract class HomeControllerBase with Store {
 
   @observable
   IconData obscureIcon = Icons.visibility;
-
-  final FocusNode emailFocus = FocusNode();
-  final FocusNode passwordFocus = FocusNode();
 
   @action
   changeIsLoading() => isLoading = !isLoading;

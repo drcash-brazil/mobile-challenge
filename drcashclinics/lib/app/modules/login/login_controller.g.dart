@@ -9,6 +9,22 @@ part of 'login_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$LoginController on LoginControllerBase, Store {
+  late final _$loginModelAtom =
+      Atom(name: 'LoginControllerBase.loginModel', context: context);
+
+  @override
+  LoginModel get loginModel {
+    _$loginModelAtom.reportRead();
+    return super.loginModel;
+  }
+
+  @override
+  set loginModel(LoginModel value) {
+    _$loginModelAtom.reportWrite(value, super.loginModel, () {
+      super.loginModel = value;
+    });
+  }
+
   late final _$obscureValueAtom =
       Atom(name: 'LoginControllerBase.obscureValue', context: context);
 
@@ -61,6 +77,28 @@ mixin _$LoginController on LoginControllerBase, Store {
       ActionController(name: 'LoginControllerBase', context: context);
 
   @override
+  bool isValidForm(LoginModel loginModel) {
+    final _$actionInfo = _$LoginControllerBaseActionController.startAction(
+        name: 'LoginControllerBase.isValidForm');
+    try {
+      return super.isValidForm(loginModel);
+    } finally {
+      _$LoginControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  dynamic changeIsLoading() {
+    final _$actionInfo = _$LoginControllerBaseActionController.startAction(
+        name: 'LoginControllerBase.changeIsLoading');
+    try {
+      return super.changeIsLoading();
+    } finally {
+      _$LoginControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
   dynamic changeObscure() {
     final _$actionInfo = _$LoginControllerBaseActionController.startAction(
         name: 'LoginControllerBase.changeObscure');
@@ -74,6 +112,7 @@ mixin _$LoginController on LoginControllerBase, Store {
   @override
   String toString() {
     return '''
+loginModel: ${loginModel},
 obscureValue: ${obscureValue},
 isLoading: ${isLoading},
 obscureIcon: ${obscureIcon}
