@@ -37,6 +37,8 @@ dependencies:
   flutter_modular: ^5.0.0
   mobx: ^2.0.6+1
   flutter_mobx: ^2.0.4
+  http: ^0.13.4
+  motion_toast: ^2.1.9
 
 dev_dependencies:
   flutter_test:

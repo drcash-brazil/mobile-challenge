@@ -18,9 +18,6 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     final LoginController controller = Modular.get();
 
-    final FocusNode emailFocus = FocusNode();
-    final FocusNode passwordFocus = FocusNode();
-
     return Card(
       elevation: 3,
       child: Container(
@@ -44,22 +41,26 @@ class _LoginFormState extends State<LoginForm> {
                   label: "Email",
                   icon: Icon(Icons.person),
                   keyboardType: TextInputType.emailAddress,
-                  focus: emailFocus,
-                  requestFocus: passwordFocus,
+                  focus: controller.emailFocus,
+                  requestFocus: controller.passwordFocus,
                   validator: (value) {
                     return value == null || value.isEmpty
                         ? "Preencha o campo email."
                         : null;
                   },
-                  onChanged: (value) {},
+                  onChanged: (value) {
+                    controller.loginModel.email = value;
+                  },
                 ),
                 CustomInputWidget(
                     label: "Senha",
                     icon: Icon(Icons.lock),
                     obscure: controller.obscureValue,
                     keyboardType: TextInputType.text,
-                    focus: passwordFocus,
-                    onChanged: (value) {},
+                    focus: controller.passwordFocus,
+                    onChanged: (value) {
+                      controller.loginModel.password = value;
+                    },
                     validator: (value) {
                       return value!.isEmpty ? "Preencha o campo senha." : null;
                     },
@@ -73,7 +74,12 @@ class _LoginFormState extends State<LoginForm> {
                 controller.isLoading
                     ? CircularProgressIndicator()
                     : ElevatedButton(
-                        onPressed: () async {},
+                        onPressed: () async {
+                          FocusManager.instance.primaryFocus?.unfocus();
+                          if (_formKey.currentState!.validate()) {
+                            await controller.login(context);
+                          }
+                        },
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xff06c9ad),
                           padding: EdgeInsets.symmetric(
