@@ -58,6 +58,10 @@ abstract class LoginControllerBase with Store {
     }
   }
 
+  logout() async {
+    Modular.to.navigate('/login/');
+  }
+
   @action
   changeObscure() {
     obscureValue = !obscureValue;
