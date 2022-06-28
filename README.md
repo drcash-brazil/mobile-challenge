@@ -11,7 +11,7 @@ Para baixar as dependencias utilizadas no aplicativo.
 
 # Solução apresentada
 ## Querys
-Para esse teste foram utilizadas algumas dependencias que suportam as requisições, como o http_flutter, essa dependencia foi escolhida pois é mais fácil utilizar setando estados para os Fetchs das querys, incluindo que a geração do schema não é necessária nesses casos, usando ferramentas como o QuickType, facilitam a criação e geração dos Jsons e para o Token, basta usar a função do Http.
+Para esse teste foram utilizadas algumas dependencias que suportam as requisições, como o http_flutter, essa dependencia foi escolhida pois é mais fácil utilizar setando estados para os Fetchs das querys, usando ferramentas como o QuickType, facilitam a criação e geração dos Jsons e para o Token, basta usar a função do Http.
 
 ## Estrutura do Projeto
 Por ser um projeto mais objetivo, foi utilizado padrões de organizações de features e core, contendo suas respectivas estruturas, mantendo o código de fácil compreensão e estruturado de forma limpa e para uso de Rotas foi utilizada o MaterialPageRoute.
