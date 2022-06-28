@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-import '../../models/user_data.dart';
+import '../../models/signin/user_data.dart';
 
 class SigninDTO extends ChangeNotifier{
   Future<UserData> signin(String email, String password) async {

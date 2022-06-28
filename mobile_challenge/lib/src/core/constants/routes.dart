@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_challenge/src/features/home/page/home.dart';
 
-import '../../features/greetings/page/greetings_page.dart';
+import '../../features/greetings/pages/greetings_page.dart';
 import '../../features/signin/pages/signin.dart';
 
 class AppRouteNames {

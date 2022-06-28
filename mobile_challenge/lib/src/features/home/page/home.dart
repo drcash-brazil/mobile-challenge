@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:mobile_challenge/src/core/util/assets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../core/models/home/clinics_list.dart';
 import '../../../core/services/home/home_service.dart';
@@ -75,13 +76,15 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
+              
               Stack(
                 clipBehavior: Clip.none,
                 alignment: AlignmentDirectional.topCenter,
-                children: const <Widget>[
-                  BackGround(),
-                  BuildGreetings(),
-                  BuildMoodsHolder(),
+                children:  <Widget>[
+                  const BackGround(),
+                  const BuildGreetings(),
+                  const BuildMoodsHolder(),
+                  Image.asset(AppAssets.logoWhite),
                 ],
               ),
               const SizedBox(
