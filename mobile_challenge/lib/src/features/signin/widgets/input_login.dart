@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import '../pages/signin.text.dart';
 
@@ -16,7 +15,7 @@ class InputLogin extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Align(
+        const Align(
             alignment: Alignment.topLeft,
             child: Text(
               SigninText.login,

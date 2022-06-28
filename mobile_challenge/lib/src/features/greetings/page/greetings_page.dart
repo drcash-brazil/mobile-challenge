@@ -1,11 +1,8 @@
-
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import '../../../core/constants/routes.dart';
+import '../../../core/util/assets.dart';
 import '../../../core/util/base_colors.dart';
+import 'greeting_page.text.dart';
 
 class GreetingsPage extends StatefulWidget {
   const GreetingsPage({Key? key}) : super(key: key);
@@ -30,7 +27,7 @@ class _GreetingsPageState extends State<GreetingsPage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Image.asset(
-                      'assets/images/logo_drcash2.png',
+                      AppAssets.logoWhite,
                       width: MediaQuery.of(context).size.width * 0.8,
                     ),
                   ],
@@ -46,7 +43,11 @@ class _GreetingsPageState extends State<GreetingsPage> {
                       height: 48,
                       child: ElevatedButton(
                         onPressed: () {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Página em desenvolvimento ;)')));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text(GreetingsText.pageDevelop),
+                            ),
+                          );
                         },
                         style: ButtonStyle(
                           backgroundColor:
@@ -58,7 +59,7 @@ class _GreetingsPageState extends State<GreetingsPage> {
                           ),
                         ),
                         child: const Text(
-                          'Começar',
+                          GreetingsText.start,
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.black,
@@ -73,7 +74,7 @@ class _GreetingsPageState extends State<GreetingsPage> {
                       height: 48,
                       child: ElevatedButton(
                         onPressed: () {
-                         Navigator.pushNamed(context, AppRouteNames.signin);
+                          Navigator.pushNamed(context, AppRouteNames.signin);
                         },
                         style: ButtonStyle(
                           backgroundColor:
@@ -85,7 +86,7 @@ class _GreetingsPageState extends State<GreetingsPage> {
                           ),
                         ),
                         child: const Text(
-                          'Entrar na minha conta',
+                          GreetingsText.enterAccount,
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.black,
@@ -95,32 +96,6 @@ class _GreetingsPageState extends State<GreetingsPage> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    // SizedBox(
-                    //   width: 340.0,
-                    //   height: 48,
-                    //   child: OutlinedButton(
-                    //     style: OutlinedButton.styleFrom(
-                    //       side: const BorderSide(
-                    //         color: Colors.white,
-                    //         width: 2,
-                    //         style: BorderStyle.solid,
-                    //       ),
-                    //       shape: RoundedRectangleBorder(
-                    //         borderRadius: BorderRadius.circular(100),
-                    //       ),
-                    //     ),
-                    //     onPressed: () {
-                    //       widget.navigator.pushNamed(AppRouteNames.token);
-                    //     },
-                    //     child: const Text(
-                    //       GreetingsScreenText.token,
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //         color: Colors.white,
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
                   ],
                 ),
               ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_challenge/src/core/constants/routes.dart';
+import 'package:mobile_challenge/src/core/services/home/home_service.dart';
+import 'package:mobile_challenge/src/core/services/signin/signin_service.dart';
 import 'package:mobile_challenge/src/core/util/global_context.dart';
 import 'package:mobile_challenge/src/core/util/service_location.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +16,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+            create: (_) => SigninDTO()),
+        ChangeNotifierProvider(create: (_) => HomeDTO())
+      ],
+      child: MaterialApp(
       title: 'Dr. Cash',
       debugShowCheckedModeBanner: false,
       //navigatorKey: locator<NavigationService>().navigatorKey,
@@ -39,6 +48,6 @@ class MyApp extends StatelessWidget {
               Text('Página inválida');
         },
       ),
-    );
+    ));
   }
 }

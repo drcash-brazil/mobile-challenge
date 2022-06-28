@@ -1,10 +1,11 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 import '../../models/user_data.dart';
 
-class SigninDTO {
+class SigninDTO extends ChangeNotifier{
   Future<UserData> signin(String email, String password) async {
     final response = await http.post(
       Uri.parse('https://apihml.drcash.com.br/api/v1/identity/token'),

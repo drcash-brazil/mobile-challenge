@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class MessageError extends StatefulWidget {
   final String text;
@@ -13,12 +11,11 @@ class MessageError extends StatefulWidget {
 class _MessageErrorState extends State<MessageError> {
   @override
   Widget build(BuildContext context) {
-    
     return Container(
       height: 50,
       width: 20,
-      padding: EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(16.0),
+      decoration: const BoxDecoration(
         color: Colors.red,
         borderRadius: BorderRadius.all(
           Radius.circular(16.0),
@@ -28,12 +25,12 @@ class _MessageErrorState extends State<MessageError> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
           Text(
             widget.text,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white,
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold),

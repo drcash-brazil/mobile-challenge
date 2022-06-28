@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class NewAccount extends StatefulWidget {
-const NewAccount({Key? key}) : super(key: key);
+  const NewAccount({Key? key}) : super(key: key);
 
   @override
   State<NewAccount> createState() => _NewAccountState();
@@ -14,7 +12,9 @@ class _NewAccountState extends State<NewAccount> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-       const SizedBox(height: 96.0,),
+        const SizedBox(
+          height: 96.0,
+        ),
         const Text(
           'Não tem conta?',
           style: TextStyle(
@@ -23,7 +23,8 @@ class _NewAccountState extends State<NewAccount> {
         ),
         TextButton(
           onPressed: () {
-           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Página em desenvolvimento ;)')));
+            ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(content: Text('Página em desenvolvimento ;)')));
           },
           child: const Text(
             'Cadastre-se',

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class MessageSuccess extends StatefulWidget {
   final String text;
@@ -17,8 +15,8 @@ class _MessageSuccessState extends State<MessageSuccess> {
     return Container(
       height: 50,
       width: 20,
-      padding: EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(16.0),
+      decoration: const BoxDecoration(
         color: Colors.green,
         borderRadius: BorderRadius.all(
           Radius.circular(16.0),
@@ -28,12 +26,12 @@ class _MessageSuccessState extends State<MessageSuccess> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
           Text(
             widget.text,
-            style: TextStyle(
+            style: const TextStyle(
                 color: Colors.white,
                 fontSize: 16.0,
                 fontWeight: FontWeight.bold),

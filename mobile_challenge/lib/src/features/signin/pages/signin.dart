@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:mobile_challenge/src/core/constants/routes.dart';
 import 'package:mobile_challenge/src/core/services/signin/signin_service.dart';
 import 'package:mobile_challenge/src/core/util/assets.dart';
@@ -21,10 +19,10 @@ class SigninPage extends StatefulWidget {
 }
 
 class _SigninPageState extends State<SigninPage> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  SigninDTO _signinDTO = SigninDTO();
+  final SigninDTO _signinDTO = SigninDTO();
   bool obscure = true;
   bool isLoading = false;
 
@@ -32,7 +30,7 @@ class _SigninPageState extends State<SigninPage> {
   Widget build(BuildContext context) {
     return ModalProgressHUD(
       inAsyncCall: isLoading,
-      progressIndicator: CircularProgressIndicator(
+      progressIndicator: const CircularProgressIndicator(
         color: BaseColors.drCashPrimary,
       ),
       child: Scaffold(
@@ -68,7 +66,7 @@ class _SigninPageState extends State<SigninPage> {
                     const SizedBox(
                       height: 32.0,
                     ),
-                    Align(
+                    const Align(
                         alignment: Alignment.topLeft,
                         child: Text(
                           SigninText.password,
@@ -96,7 +94,7 @@ class _SigninPageState extends State<SigninPage> {
                               obscure = !obscure;
                             });
                           },
-                          icon: Icon(Icons.visibility),
+                          icon: const Icon(Icons.visibility),
                         ),
                         contentPadding: const EdgeInsets.symmetric(
                             vertical: 20, horizontal: 8),
@@ -112,8 +110,9 @@ class _SigninPageState extends State<SigninPage> {
                       alignment: Alignment.topRight,
                       child: TextButton(
                         onPressed: () {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text(SigninText.pageDeveloper)));
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text(SigninText.pageDeveloper)));
                         },
                         child: const Text(
                           SigninText.rememberPass,
@@ -143,8 +142,7 @@ class _SigninPageState extends State<SigninPage> {
                                 .signin(_emailController.text,
                                     _passwordController.text)
                                 .then((value) {
-                              Navigator.pushNamed(
-                                  context, AppRouteNames.home,
+                              Navigator.pushNamed(context, AppRouteNames.home,
                                   arguments: value);
                               setState(() {
                                 isLoading = false;
@@ -164,7 +162,7 @@ class _SigninPageState extends State<SigninPage> {
                                 isLoading = false;
                               });
                               ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
+                                const SnackBar(
                                   elevation: 0,
                                   backgroundColor: Colors.transparent,
                                   content: MessageError(
@@ -176,7 +174,7 @@ class _SigninPageState extends State<SigninPage> {
                             });
                           }
                         },
-                        child: Text(
+                        child: const Text(
                           SigninText.continueButton,
                           style: TextStyle(
                             fontSize: 22.0,
